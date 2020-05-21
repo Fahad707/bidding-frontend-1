@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>BiddingSession</ion-title>
+    <!-- <ion-title>BiddingSession {{dataz.targetCar.Make}}</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+ 
+ 
+ <ion-list>
+  <ion-item *ngFor="let item of messageArray">
+    <ion-label><strong><a color="danger">Offer : </a>{{item.message}}</strong></ion-label>
+    <ion-button color="tertiary">
+      Accept &nbsp;
+    <ion-icon name="open-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-list>
+
+
+
+<ion-item>
+  <ion-label position="stacked">Type a offer</ion-label>
+  <ion-input required type="text"  [(ngModel)]="messageText" ></ion-input>
+</ion-item>
+    
+<ion-button (click)="sendMessage()">Give an offer</ion-button>
+ 
+</ion-content>  
+

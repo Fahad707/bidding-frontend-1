@@ -1,0 +1,31 @@
+<ion-header>
+  
+  <ion-toolbar color="primary">
+    <h1 class="example" slot="start">AutoDeal</h1>
+   <h1><ion-title  class="ion-text-center"><strong>Your Bidding Sessions</strong></ion-title></h1>     
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="">
+  <div *ngIf="!loading">
+    <ion-list>
+      <ion-item *ngFor="let bidding of biddings">
+        <ion-label><strong>Started at : {{bidding.started_at.time}} on {{bidding.started_at.date}}</strong></ion-label>
+        <ion-label color="tertiary"><strong>{{bidding.targetCar.Condition}}&nbsp;  {{bidding.targetCar.Make}} {{bidding.targetCar.Model}}  {{bidding.targetCar.Trim_name}} </strong></ion-label>
+        <ion-badge *ngIf="!bidding.seen" color="danger">NEW !</ion-badge> 
+        &nbsp;&nbsp;&nbsp;                              
+        <!-- <ion-button  (click)="join(bidding._id)" href="/bidding-session" color="tertiary"> -->
+        <ion-button  [routerLink]="['/bidding-session']" [queryParams]="{ session_id:bidding._id}"    color="tertiary">
+          Participate &nbsp;
+        <ion-icon name="open-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+    <!-- {{dataz|json}} -->
+  </div>
+
+  <div *ngIf="loading">
+    <ion-list>
+    </ion-list>
+  </div>
+</ion-content>

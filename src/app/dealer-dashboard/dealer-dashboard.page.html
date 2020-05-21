@@ -1,0 +1,78 @@
+<!-- <ion-toolbar color="primary">
+  <ion-title  >
+   <h1 class>AutoDeal</h1> 
+  </ion-title>
+
+  <ion-item>
+    <ion-label slot="end">Bidding Instances</ion-label>
+    <ion-badge slot="end">22</ion-badge>
+  </ion-item>
+  <ion-item>
+</ion-toolbar>
+
+ -->
+ <ion-header>
+  <ion-toolbar color="primary">
+    <ion-title  >
+      <h1 class="example">AutoDeal</h1> 
+     </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button  class="eg">
+         &nbsp; &nbsp;
+         <ion-icon name="moon-outline"></ion-icon>
+         &nbsp; Sign-out
+       </ion-button>
+     </ion-buttons>
+   <!-- ==================================================== -->
+   <ion-buttons slot="primary">
+       <ion-button  class="eg">
+         New Cars
+       </ion-button>
+     </ion-buttons>
+   <!-- ======================================================= -->
+     <ion-buttons slot="primary">
+       <ion-button  class="eg">
+         Used Cars
+       </ion-button>
+     </ion-buttons>
+   
+     <ion-buttons slot="primary">
+       <ion-button  class="eg">
+         Car Reviews
+       </ion-button>
+     </ion-buttons>
+   
+     <ion-buttons slot="primary">
+       <ion-button  class="eg">
+         Car Leasing
+       </ion-button>
+     </ion-buttons>
+     
+   
+     <ion-buttons slot="primary">
+       <ion-button  class="eg" href="/bidding">
+         Bidding Sessions
+         <ion-icon name="notifications" ></ion-icon>
+         &nbsp;
+         <ion-badge   *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>     
+        </ion-button>
+     </ion-buttons>
+   
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <br>
+  <br>
+  <br>
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Strong>Dealer Dashboard</Strong>  <!-- <p>
+    Button with a badge on the left
+    <button mat-raised-button color="primary"
+        matBadge="8" matBadgePosition="before" matBadgeColor="accent">
+      Action
+    </button>
+  </p>
+   -->
+
+</ion-content>
