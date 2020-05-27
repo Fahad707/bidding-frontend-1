@@ -7,11 +7,14 @@
   
 </ion-header>
 
+<ion-item>
+  The Target Car : {{onedata?.targetCar.Make}} {{onedata?.targetCar.Model}} {{onedata?.targetCar.Type}} {{onedata?.targetCar.Trim_name}} <br> Condition: {{onedata?.targetCar.Condition}} 
+</ion-item>
 <ion-content>
  
   <ion-list>
     <ion-item *ngFor="let item of onedata?.offers">
-      <ion-label><strong><a color="danger">Offer : </a>{{item.Condition|json}}</strong></ion-label>  
+      <ion-label><strong><a color="danger">Offer : </a>{{item.Condition}}</strong></ion-label>  
     </ion-item>  
     <!-- {{onedata?.offers}} -->
   </ion-list>

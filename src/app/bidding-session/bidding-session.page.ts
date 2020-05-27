@@ -33,7 +33,7 @@ async ngOnInit() {
         this.sessionid = params;
       });
       this.join(this.sessionid)
-      this.getAll(this.sessionid);//through route
+      this.getAll(this.sessionid);//through route//currently using this
       //this.getAll(this.sessionid)
 }
 
