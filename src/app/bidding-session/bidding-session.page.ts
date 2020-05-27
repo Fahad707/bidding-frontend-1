@@ -15,14 +15,14 @@ messageText:String;
 messageArray:Array<{message:String}> = [];
   user: any;
   dataz;
-
+  offer;
 constructor(private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) 
 {  this.liveBiddingService.newMessageReceived()
   .subscribe(data=>{this.messageArray.push(data);console.log("OOOOOOOOOOOOOOOO"+this.messageArray)}); 
 
   
-  this.liveBiddingService.newUserJoined()
-  .subscribe(data=> {this.dataz=data;console.log(this.dataz)});
+  this.liveBiddingService.newUserJoined()//through socket
+  .subscribe(data=> {this.dataz=data;this.offer = this.dataz.offers;console.log("offer:");console.log(this.dataz)});
   
 }
 
@@ -33,7 +33,8 @@ async ngOnInit() {
         this.sessionid = params;
       });
       this.join(this.sessionid)
-      //this.getAll(this.sessionid);
+      this.getAll(this.sessionid);//through route
+      //this.getAll(this.sessionid)
 }
 
 sendMessage()

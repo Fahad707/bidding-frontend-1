@@ -13,18 +13,15 @@ export class LiveBiddingService {
   {
       this.socket.emit('Create&Join');
   }
-
   ExistingRoomJoin(data)
   {
     console.log("emitted to server")
     this.socket.emit('joining',data);
     
   }
-
-
   newUserJoined()
   {
-      let observable = new Observable<{biddingInfo:String}>(observer=>{
+      let observable = new Observable<{biddingInfo:Object}>(observer=>{
           this.socket.on('Thebiddnginfo', (data)=>{
               observer.next(data);
               console.log("@@@@@@#####################$$$$$$$");
@@ -35,7 +32,6 @@ export class LiveBiddingService {
 
       return observable;
   }
-
   newsession()
   {
       let observable = new Observable<{biddingInfo:String}>(observer=>{
@@ -48,15 +44,12 @@ export class LiveBiddingService {
 
       return observable;
   }
-
-
-  sendMessage(data)
+sendMessage(data)
 {
     // console.log("sendMessage(data):");
     // console.log(data.message);
     this.socket.emit('message',data);
 }
-
 newMessageReceived(){
     let observable = new Observable<{message:String}>(observer=>{
         this.socket.on('new message', (data)=>{
@@ -66,8 +59,6 @@ newMessageReceived(){
         });
         return () => {this.socket.disconnect();}
     });
-
     return observable;
 }
-
 }
