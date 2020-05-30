@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>displayCars</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of cars">
+      <ion-label><strong><a color="danger"></a>{{item.MAKE}}  {{item.Model}}</strong></ion-label>  
+      
+    <ion-button  [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}"    color="tertiary">
+      Get offers &nbsp;
+    <ion-icon name="open-outline"></ion-icon>
+    </ion-button>
+   </ion-item>
+  </ion-list>
+</ion-content>

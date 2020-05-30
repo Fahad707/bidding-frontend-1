@@ -25,6 +25,13 @@ export class BiddingServiceService {
     const url =Autodeal.getPath() + '/bidding/start';
     return this.http.post(url,credentials);
   }
-
+  public carType(Type:String,id:String): Observable<any> {
+    const url =Autodeal.getPath() +  `/bidding/configure_car/${Type}/${id}`;
+    return this.http.post(url,Type);
+  }
+  public async gettrim(sessionid): Promise<any> {
+    const url =Autodeal.getPath() + `/bidding/configure_car/trims/${sessionid}`;
+    return this.http.get(url);
+  }
 }
 

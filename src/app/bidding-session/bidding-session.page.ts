@@ -8,7 +8,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./bidding-session.page.scss'],
 })
 export class BiddingSessionPage implements OnInit{
-sessionid;
+sessionid:String;
 sub;
 onedata;
 messageText:String;
@@ -30,7 +30,7 @@ async ngOnInit() {
     this.sub = this.activateRouter.queryParams
       .subscribe(params => {
         // Defaults to 0 if no query param provided.
-        this.sessionid = params;
+        this.sessionid = params.session_id;
       });
       this.join(this.sessionid)
       this.getAll(this.sessionid);//through route//currently using this
