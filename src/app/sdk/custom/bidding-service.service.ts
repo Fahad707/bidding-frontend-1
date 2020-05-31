@@ -33,5 +33,9 @@ export class BiddingServiceService {
     const url =Autodeal.getPath() + `/bidding/configure_car/trims/${sessionid}`;
     return this.http.get(url);
   }
+  public async getengine(sessionid): Promise<any> {
+    const url =Autodeal.getPath() + `/bidding/configure_car/${sessionid}/engine`;
+    return this.http.get(url);
+  }
 }
 

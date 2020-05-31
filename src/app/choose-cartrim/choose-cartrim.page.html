@@ -4,11 +4,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
+<ion-content>  
+  <ion-list>              
     <ion-item *ngFor="let item of onedata">
       <ion-label><strong><a color="danger"></a>{{item.name}}</strong></ion-label>  
-      <ion-button color="tertiary">select</ion-button>
+      <ion-button [routerLink]="['/engine']" [queryParams]="{ trim:item._id}" color="tertiary">select</ion-button>
     </ion-item>  
   </ion-list>
 </ion-content>

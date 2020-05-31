@@ -7,6 +7,6 @@
 <ion-content>
 <ion-label>Type: </ion-label>  <input type="text" [(ngModel)]="type" class="form-control"id="typee">
 
-<ion-button  [routerLink]="['/choose-cartrim']" [queryParams]="{ car:carid}"    color="tertiary">
+<ion-button   (click)="postType(type,carid)" [routerLink]="['/choose-cartrim']" [queryParams]="{ car:carid}"    color="tertiary">
   Choose Trim</ion-button>
 </ion-content>

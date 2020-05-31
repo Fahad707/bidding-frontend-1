@@ -1,9 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>suppose engine page is the one which has the start bidding button,on presing which the dealer will join the bidding session..............</ion-title>
+    <ion-title>
+      suppose engine page is the one which has the start bidding button,on presing which the dealer will join the bidding session..............</ion-title>
   </ion-toolbar>
 </ion-header>
 <input type="text" [(ngModel)]="user" class="form-control"id="username">
 <ion-content>
+  {{onedata}}
+<!-- <ion-button (click)="createNewSession()" [routerLink]="['/customer-bidding-session']" [queryParams]="{ session_id:the_data}">Start Bidding</ion-button> -->
 <ion-button (click)="createNewSession()" href="/customer-bidding-session">Start Bidding</ion-button>
 </ion-content> 

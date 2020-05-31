@@ -15,7 +15,7 @@ export class LiveBiddingService {
   }
   ExistingRoomJoin(data)
   {
-    console.log("emitted to server")
+    console.log("emitted to server"+data.room)
     this.socket.emit('joining',data);
     
   }
@@ -32,9 +32,9 @@ export class LiveBiddingService {
 
       return observable;
   }
-  newsession()
+  newsessio()
   {
-      let observable = new Observable<{biddingInfo:String}>(observer=>{
+      let observable = new Observable<{biddingInfo:Object}>(observer=>{
           this.socket.on('newsession', (data)=>{
               observer.next(data);
               console.log("@@@@@@#####################$$$$$$$$$$%%%%%%%%%%%%%%::::"+data)

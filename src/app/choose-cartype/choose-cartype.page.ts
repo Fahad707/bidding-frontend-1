@@ -23,7 +23,7 @@ export class ChooseCartypePage implements OnInit {
       console.log("carid:");
       console.log(this.carid);
     });
-    this.postType(this.type,this.carid);
+  
   }
   async postType(type,carid) {
     const observable = await this. biddingServiceService.carType(type,carid);

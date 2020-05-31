@@ -41,7 +41,7 @@ sendMessage()
 {
 //  this.liveBiddingService.sendMessage({room:this.sessionid, message:this.messageText});
 //   console.log("messageText:"+this.messageText)
-this.liveBiddingService.sendMessage({room:'5ebe96df4511ee2e3c565554', message:this.messageText});
+this.liveBiddingService.sendMessage({room:this.sessionid, message:this.messageText});
   console.log("messageText:"+this.messageText)
     this.messageText="";
 }
