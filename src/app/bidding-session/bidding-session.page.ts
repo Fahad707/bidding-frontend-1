@@ -43,6 +43,7 @@ sendMessage()
 //   console.log("messageText:"+this.messageText)
 this.liveBiddingService.sendMessage({room:this.sessionid, message:this.messageText});
   console.log("messageText:"+this.messageText)
+  console.log(this.sessionid)
     this.messageText="";
 }
 
