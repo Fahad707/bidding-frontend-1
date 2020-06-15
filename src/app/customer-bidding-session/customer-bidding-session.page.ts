@@ -7,7 +7,7 @@ import { LiveBiddingService } from '../sdk/custom/live-bidding.service';
   styleUrls: ['./customer-bidding-session.page.scss'],
 })
 export class CustomerBiddingSessionPage implements OnInit {
-  dataz;
+dataz;
  car;
 
   constructor(private liveBiddingService:LiveBiddingService) { 

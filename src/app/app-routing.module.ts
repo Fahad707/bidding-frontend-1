@@ -5,10 +5,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
-    path: 'user-login',
-    loadChildren: () => import('./user-login/user-login.module').then( m => m.UserLoginPageModule)
-  },
-  {
     path: 'dealer-dashboard',
     loadChildren: () => import('./dealer-dashboard/dealer-dashboard.module').then( m => m.DealerDashboardPageModule)
   },
@@ -43,6 +39,22 @@ const routes: Routes = [
   {
     path: 'display-cars',
     loadChildren: () => import('./display-cars/display-cars.module').then( m => m.DisplayCarsPageModule)
+  },
+  {
+    path: 'userlogin',
+    loadChildren: () => import('./userlogin/userlogin.module').then( m => m.UserloginPageModule)
+  },
+  {
+    path: 'usersignup',
+    loadChildren: () => import('./usersignup/usersignup.module').then( m => m.UsersignupPageModule)
+  },
+  {
+    path: 'dealerlogin',
+    loadChildren: () => import('./dealerlogin/dealerlogin.module').then( m => m.DealerloginPageModule)
+  },
+  {
+    path: 'registerdealer',
+    loadChildren: () => import('./registerdealer/registerdealer.module').then( m => m.RegisterdealerPageModule)
   }
 ];
 

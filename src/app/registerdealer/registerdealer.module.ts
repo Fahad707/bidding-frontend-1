@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UserLoginPageRoutingModule } from './user-login-routing.module';
+import { RegisterdealerPageRoutingModule } from './registerdealer-routing.module';
 
-import { UserLoginPage } from './user-login.page';
+import { RegisterdealerPage } from './registerdealer.page';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
@@ -20,13 +20,13 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     FormsModule,
     IonicModule,
-    UserLoginPageRoutingModule,
-    MatFormFieldModule,
-    MatSelectModule,
+    RegisterdealerPageRoutingModule,
+    MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatSelectModule,
+    MatFormFieldModule
   ],
-  declarations: [UserLoginPage]
+  declarations: [RegisterdealerPage]
 })
-export class UserLoginPageModule {}
+export class RegisterdealerPageModule {}
