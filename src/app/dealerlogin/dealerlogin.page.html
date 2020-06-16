@@ -5,28 +5,28 @@
 </ion-header>
 
 <ion-content>
-
-  <mat-card class="example-card">
+ 
+   <mat-card class="example-card">
 
     <mat-card-title>Dealer dashboard login</mat-card-title>
     <br>
     
     <mat-label>Dealership Name</mat-label>
     <br>
-    <input matInput>
+    <input matInput  [(ngModel)]="name">
     <br>
     <mat-label>Password</mat-label>
     <br>
-    <input matInput>
+    <input matInput type="password" [(ngModel)]="password">
     <br>
     <mat-checkbox>Remember me</mat-checkbox>
     <br>
     <h3>Don't have an account?<a href="/registerdealer"> Register</a></h3>
     <a href="forget-password"> Forgot Password? </a>
     <br>
-    <ion-button expand="block">Log in</ion-button>
+    <ion-button expand="block" (click)="save()">Log in</ion-button>
+    <!-- [(ngModel)]="messageText -->
+   </mat-card>
 
-  </mat-card>
-
-
+ 
 </ion-content>
