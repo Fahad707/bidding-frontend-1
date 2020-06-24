@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DealerService } from '../sdk/custom/dealer.service';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-dealerlogin',
   templateUrl: './dealerlogin.page.html',
-  styleUrls: ['./dealerlogin.page.scss'],
+  styleUrls: ['./dealerlogin.page.scss']
 })
 export class DealerloginPage implements OnInit {
   
@@ -34,7 +34,8 @@ export class DealerloginPage implements OnInit {
         console.log('got response from server', data);
         this.loading = false;
       // this.authService.saveTokenToStorage(data.token);
-      // this.router.navigateByUrl('/dealer-dashboard');
+        //this.router.navigateByUrl('/dealer-dashboard');
+        this.router.navigateByUrl('/home');
       // href='/dealer-dashboard';
       },
       error => {

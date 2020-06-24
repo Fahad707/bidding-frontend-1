@@ -17,50 +17,50 @@
 
     <mat-label>Dealership Name</mat-label>
     <br>
-    <input matInput>
+    <input matInput  [(ngModel)]="name">
     <br>
 
     <mat-label>Password</mat-label>
     <br>
-    <input matInput>
+    <input matInput type="password" [(ngModel)]="password">
     <br>
 
     <h3>Address Information</h3>
     
     <mat-label>Street</mat-label>
     <br>
-    <input matInput>
+    <input matInput  [(ngModel)]="street">
     <br>
 
     <mat-label>City</mat-label>
     <br>
-    <input matInput>
+    <input matInput  [(ngModel)]="city">
     <br>
 
     <mat-label>State</mat-label>
     <br>
-    <input matInput>
+    <input matInput  [(ngModel)]="state">
     <br>
 
     <mat-label>Zip Code</mat-label>
     <br>
-    <input matInput>
+    <input matInput  [(ngModel)]="zipcode">
     <br>
 
     <h3>Contact Information</h3>
     
     <mat-label>Phone</mat-label>
     <br>
-    <input matInput>
+    <input matInput  [(ngModel)]="phone">
     <br>
 
     <mat-label>Email</mat-label>
     <br>
-    <input matInput>
+    <input matInput  [(ngModel)]="email">
     <br>
 
     <br>
-    <ion-button expand="block">Create an account</ion-button>
+    <ion-button expand="block"  (click)="save()">Create an account</ion-button>
 
   </mat-card>
 

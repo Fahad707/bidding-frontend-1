@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<!-- <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of cars">
       <ion-label><strong><a color="danger"></a>{{item.MAKE}}  {{item.Model}}</strong></ion-label>  
@@ -15,4 +15,27 @@
     </ion-button>
    </ion-item>
   </ion-list>
+</ion-content> -->
+
+
+<ion-content>
+  {{noofcarsrows}}
+<div class="ion-padding">
+  <ion-row class="horizontal-cards">
+    <ion-col *ngFor="let item of cars" size="4">
+      <div><ion-card color="light">
+        <img src="./assets/icon/3549909.jpg">
+        <ion-card-header>
+          <ion-card-title>{{item.MAKE}}</ion-card-title>
+          <ion-card-subtitle>{{item.Model}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          Manufacturer deposit contribution increased by £250 to £1,750 lala bad
+        </ion-card-content>
+        <ion-button expand="block"  [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="tertiary"> Get offers &nbsp;</ion-button>  
+      </ion-card>
+    </div>
+    </ion-col>
+    </ion-row>
+  </div> 
 </ion-content>

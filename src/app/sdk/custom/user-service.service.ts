@@ -16,5 +16,11 @@ export class UserServiceService {
     const url =Autodeal.getPath() + '/users/login';
     return this.http.post(url, credentials);
   }
+  public userRegister(credentials: object): Observable<any> {
+    // this url will be http://localhost:3000/users/login
+    const url =Autodeal.getPath() + '/users/register';
+    console.log("route hit")
+    return this.http.post(url, credentials);
+  }
 
 }

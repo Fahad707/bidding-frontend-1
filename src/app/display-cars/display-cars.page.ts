@@ -7,10 +7,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./display-cars.page.scss'],
 })
 export class DisplayCarsPage implements OnInit {
-  cars: any[];
+  cars: [];
   carid;
   sub;
-  
+  noofcarsrows;
   constructor(private activateRouter:ActivatedRoute,private carsService:CarsService) { }
 
   async ngOnInit() {
@@ -30,6 +30,8 @@ export class DisplayCarsPage implements OnInit {
           this.cars = data.data;
           console.log("cars:")
           console.log(data.data);
+          if(this.cars.length%3==0){
+          this.noofcarsrows=this.cars.length/3}
         },
         err => {
           console.log('err', err);

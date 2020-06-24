@@ -13,10 +13,16 @@
  -->
  <ion-header>
   <ion-toolbar color="primary">
+
+
     <ion-title  >
       <h1 class="example">AutoDeal</h1> 
-     </ion-title>
-
+      <h3><Strong>{{info.name}}'s Dashboard</Strong></h3>
+    </ion-title>
+    
+  
+   
+    
     <ion-buttons slot="end">
       <ion-button  class="eg">
          &nbsp; &nbsp;
@@ -66,7 +72,7 @@
   <br>
   <br>
   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Strong>Dealer Dashboard</Strong>  <!-- <p>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Strong>{{info.name}}'s Dealer Dashboard</Strong>  <!-- <p>
     Button with a badge on the left
     <button mat-raised-button color="primary"
         matBadge="8" matBadgePosition="before" matBadgeColor="accent">

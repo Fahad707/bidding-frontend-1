@@ -15,15 +15,15 @@
   
     <mat-label>Email</mat-label>
     <br>
-    <input matInput>
+    <input matInput [(ngModel)]="email">
     <br>
     <mat-label>Password</mat-label>
     <br>
-    <input matInput>
+    <input matInput [(ngModel)]="password">
     <br>
     <mat-checkbox>Remember me</mat-checkbox>
     <br>
-    <ion-button expand="block">Login</ion-button>
+    <ion-button expand="block" (click)="save()">Login</ion-button>
   
     <a href="forget-password"> Forgot Password? </a>
 

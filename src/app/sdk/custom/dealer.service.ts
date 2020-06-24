@@ -19,5 +19,10 @@ export class DealerService {
     const url =Autodeal.getPath() + '/dealerships/login';
     return this.http.post(url, credentials);
   }
+  public userRegister(credentials: object): Observable<any> {
+    const url = Autodeal.getPath() + '/dealerships/register';
+    console.log("gone in service")
+    return this.http.post(url, credentials);
+  }
   
 }

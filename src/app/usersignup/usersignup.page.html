@@ -16,23 +16,23 @@
     
     <mat-label>Name</mat-label>
     <br>
-    <input matInput>
+    <input matInput [(ngModel)]="name">
     <br>
 
 
     <mat-label>Email</mat-label>
     <br>
-    <input matInput>
+    <input matInput [(ngModel)]="email">
     <br>
 
     
     <mat-label>Password</mat-label>
     <br>
-    <input matInput>
+    <input matInput [(ngModel)]="password">
     <br>
 
     <br>
-    <ion-button expand="block">Create an account</ion-button>
+    <ion-button expand="block" (click)="save()">Create an account</ion-button>
 
   </mat-card>
 
