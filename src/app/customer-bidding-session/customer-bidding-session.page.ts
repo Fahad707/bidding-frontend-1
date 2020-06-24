@@ -8,12 +8,12 @@ import { LiveBiddingService } from '../sdk/custom/live-bidding.service';
 })
 export class CustomerBiddingSessionPage implements OnInit {
 dataz;
- car;
+car;
 
   constructor(private liveBiddingService:LiveBiddingService) { 
 
     this.liveBiddingService.newsessio()//through socket
-  .subscribe(data=> {this.dataz=data;console.log("info:");this.car =this.dataz.targetCar ;console.log(this.dataz)});
+  .subscribe(data=> {this.dataz=data;console.log("new");console.log(this.dataz);this.car = this.dataz.targetCar ;console.log("type "+typeof this.dataz)});
   
   }
 

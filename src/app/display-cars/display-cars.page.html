@@ -26,13 +26,12 @@
       <div><ion-card color="light">
         <img src="./assets/icon/3549909.jpg">
         <ion-card-header>
-          <ion-card-title>{{item.MAKE}}</ion-card-title>
-          <ion-card-subtitle>{{item.Model}}</ion-card-subtitle>
+          <ion-card-title>{{item.MAKE}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-card-title>
+          <ion-card-subtitle style="font-size: x-large;">{{item.Model}}</ion-card-subtitle>
+          <ion-card-title><Strong style="color:darkcyan">Starting Pirce</Strong> : ${{item.Trims[0].Price}} </ion-card-title>
         </ion-card-header>
-        <ion-card-content>
-          Manufacturer deposit contribution increased by £250 to £1,750 lala bad
-        </ion-card-content>
-        <ion-button expand="block"  [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="tertiary"> Get offers &nbsp;</ion-button>  
+      
+       <ion-button expand="block" style="height:45px;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="tertiary"> Get offers &nbsp;</ion-button>  
       </ion-card>
     </div>
     </ion-col>

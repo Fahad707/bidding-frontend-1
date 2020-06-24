@@ -1,9 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title> CustomerBiddingSession</ion-title>
+    <ion-title> Customer's Bidding Session</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-item>{{dataz|json}}</ion-item>
+<!-- <ion-item>{{dataz|json}}</ion-item> -->
+
+
+  <ion-row class="horizontal-cards">
+    <ion-col size="12">
+      <div><ion-card style="border-radius:16px; border-style:double; background-color:lightblue; border-width: 5px; border-color:black;"> 
+        <ion-card-header>
+          <ion-label color="warning" style="font-size: x-large;color:royalblue;"><strong>{{car.Make}} {{car.Model}} {{car.Trim_name}} {{car.Fuel_type}}</strong></ion-label>  
+          <ion-label color="warning" style="font-size: x-large;color:royalblue;"><strong>Engine:{{car.Engine}}&nbsp; Condition:{{car.Condition}} &nbsp;Transmission:{{car.Transmssion}} </strong></ion-label>  
+          
+        </ion-card-header>
+        <ion-card-content>
+       
+        </ion-card-content>
+      </ion-card>
+    </div>
+    </ion-col>
+    </ion-row>
+ 
 </ion-content>

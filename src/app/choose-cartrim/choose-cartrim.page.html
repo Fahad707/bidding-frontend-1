@@ -5,11 +5,29 @@
 </ion-header>
 
 <ion-content>  
-  <ion-list>              
+  <!-- <ion-list>              
     <ion-item *ngFor="let item of onedata">
       <ion-label><strong><a color="danger"></a>{{item.name}}</strong></ion-label>  
       <ion-button [routerLink]="['/engine']" [queryParams]="{ trim:item._id}" color="tertiary">select</ion-button>
     </ion-item>  
-  </ion-list>
+  </ion-list> -->
+
+
+  <div class="ion-padding">
+    <ion-row class="horizontal-cards">
+      <ion-col *ngFor="let item of onedata" size="12">
+        <div><ion-card style="border-radius:16px; border-style:double; background-color:lightblue; border-width: 5px; border-color:black; "> 
+          <ion-card-header>
+            <ion-label color="warning" style="font-size: x-large;color:brown;"><strong><a></a>{{item.name}}</strong></ion-label>  
+    
+          </ion-card-header>
+          <ion-card-content>
+            <ion-button style="border-style:solid; border-color:rgba(255, 0, 0, 0.486); border-radius: 12px; font-size:larger;" [routerLink]="['/engine']" [queryParams]="{ trim:item._id}" color="danger">select</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      </ion-col>
+      </ion-row>
+    </div> 
 </ion-content>
 <!-- [routerLink]="['/choose-cartrim']" [queryParams]="{ car:carid}" -->

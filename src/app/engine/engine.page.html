@@ -1,12 +1,34 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      suppose engine page is the one which has the start bidding button,on presing which the dealer will join the bidding session..............</ion-title>
-  </ion-toolbar>
+      <!-- suppose engine page is the one which has the start bidding button,on presing which the dealer will join the bidding session..............
+      </ion-title> -->
+Engines    </ion-title>
+    </ion-toolbar>
 </ion-header>
-<input type="text" [(ngModel)]="user" class="form-control"id="username">
+<!-- <input type="text" [(ngModel)]="user" class="form-control"id="username"> -->
 <ion-content>
-  {{onedata}}
+  <!-- {{onedata}} -->
 <!-- <ion-button (click)="createNewSession()" [routerLink]="['/customer-bidding-session']" [queryParams]="{ session_id:the_data}">Start Bidding</ion-button> -->
-<ion-button (click)="createNewSession()" href="/customer-bidding-session">Start Bidding</ion-button>
+<!-- <ion-button (click)="createNewSession()" href="/customer-bidding-session">Start Bidding</ion-button> -->
+
+<div class="ion-padding">
+  <ion-row class="horizontal-cards" >
+    <!-- <ion-col *ngFor="let item of onedata" size="12"> -->
+    
+    <ion-col size="2">
+      <div><ion-card style="border-radius: 20px;border-style:solid; background-color:lightblue; border-color:crimson;  border-width: 1px"> 
+        <img src="./assets/icon/images.jpg">
+        <ion-card-header>
+          <ion-label color="warning" style="font-size:x-large; color:crimson"><strong><a></a> {{onedata}} </strong></ion-label>  
+        </ion-card-header>
+        <ion-card-content>
+          <!-- <ion-button style="font-size:larger;" [routerLink]="['/engine']" [queryParams]="{ trim:item._id}" color="danger">select</ion-button> -->
+          <ion-button expand="block" (click)="createNewSession()" href="/customer-bidding-session">Start Bidding</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    </ion-col>
+    </ion-row>
+  </div> 
 </ion-content> 
