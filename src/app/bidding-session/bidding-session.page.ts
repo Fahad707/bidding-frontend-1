@@ -15,7 +15,8 @@ messageText:String;
 messageArray:Array<{message:String}> = [];
   user: any;
   dataz;
-  offer;
+offer;
+cust : false;
 constructor(private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) 
 {  this.liveBiddingService.newMessageReceived()
   .subscribe(data=>{this.messageArray.push(data);console.log("OOOOOOOOOOOOOOOO"+this.messageArray)}); 
@@ -30,7 +31,11 @@ async ngOnInit() {
     this.sub = this.activateRouter.queryParams
       .subscribe(params => {
         // Defaults to 0 if no query param provided.
+
         this.sessionid = params.session_id;
+        this.cust = params.user;
+        console.log(this.cust);
+        console.log("<<>>::>><<::<<>>")
       });
       this.join(this.sessionid)
       this.getAll(this.sessionid);//through route//currently using this

@@ -13,6 +13,7 @@ export class CustomerBiddingPage implements OnInit {
   deleteLoading = false;
   biddings;
   dataz;
+  skeletonlist = [1, 2, 3, 4, 5, 6, 7];
   
   constructor(private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) { 
     

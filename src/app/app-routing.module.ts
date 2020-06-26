@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { IsLoginGuard } from './sdk/custom/guards/islogin.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'customer-bidding-session', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
     path: 'dealer-dashboard',
@@ -30,6 +31,7 @@ const routes: Routes = [
   },
   {
     path: 'choose-cartype',
+    canActivate: [IsLoginGuard],
     loadChildren: () => import('./choose-cartype/choose-cartype.module').then( m => m.ChooseCartypePageModule)
   },
   {

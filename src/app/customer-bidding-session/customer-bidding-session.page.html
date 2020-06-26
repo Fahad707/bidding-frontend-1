@@ -7,14 +7,14 @@
 <ion-content>
 <!-- <ion-item>{{dataz|json}}</ion-item> -->
 
-
+<div class="ion-padding">
   <ion-row class="horizontal-cards">
     <ion-col size="12">
-      <div><ion-card style="border-radius:16px; border-style:double; background-color:lightblue; border-width: 5px; border-color:black;"> 
+      <div><ion-card style="border-style:double; background-color:lightblue; border-width: 5px; border-color:black;"> 
         <ion-card-header>
           <ion-label color="warning" style="font-size: x-large;color:royalblue;"><strong>{{car.Make}} {{car.Model}} {{car.Trim_name}} {{car.Fuel_type}}</strong></ion-label>  
-          <ion-label color="warning" style="font-size: x-large;color:royalblue;"><strong>Engine:{{car.Engine}}&nbsp; Condition:{{car.Condition}} &nbsp;Transmission:{{car.Transmssion}} </strong></ion-label>  
-          
+          <br>
+          <ion-label color="warning" style="font-size: x-large;color:royalblue;"><strong>Engine:{{car.Engine}}&nbsp;&nbsp; Condition:{{car.Condition}} &nbsp;&nbsp;Transmission:{{car.Transmsson}} </strong></ion-label>  
         </ion-card-header>
         <ion-card-content>
        
@@ -23,5 +23,5 @@
     </div>
     </ion-col>
     </ion-row>
- 
+  </div>
 </ion-content>

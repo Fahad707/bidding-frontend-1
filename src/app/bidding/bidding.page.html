@@ -5,7 +5,7 @@
   <h1><ion-title  class="ion-text-center"><strong>Your Bidding Sessions</strong></ion-title></h1>     
   </ion-toolbar>
 </ion-header>
-
+<!-- Now, unless you login properly, the GET request won’t work. -->
 <ion-content color="">
   <div *ngIf="!loading">
     <ion-list>
@@ -15,7 +15,7 @@
         <ion-badge *ngIf="!bidding.seen" color="danger">NEW !</ion-badge> 
         &nbsp;&nbsp;&nbsp;                              
         <!-- <ion-button  (click)="join(bidding._id)" href="/bidding-session" color="tertiary"> -->
-        <ion-button  [routerLink]="['/bidding-session']" [queryParams]="{ session_id:bidding._id}"    color="tertiary">
+        <ion-button  [routerLink]="['/bidding-session']" [queryParams]="{ session_id:bidding._id,user:false }"    color="tertiary">
           Participate &nbsp;
         <ion-icon name="open-outline"></ion-icon>
         </ion-button>

@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders } from '@angular/common/http';
 import { Autodeal } from '../autodeal.config';
 import { Observable } from 'rxjs';
+import { AuthService } from '../core/auth.service';
 @Injectable({
   providedIn: 'root'
 })
 export class BiddingServiceService {
+ 
 
-  constructor(private http: HttpClient) { }
+  constructor(private authService : AuthService,private http: HttpClient) { }
 
   public async getAllBooks(): Promise<any> {
     const url =Autodeal.getPath() + '/bidding/DealerView';
@@ -30,9 +32,13 @@ export class BiddingServiceService {
     const url =Autodeal.getPath() + '/bidding/start';
     return this.http.post(url,credentials);
   }
-  public carType(Type:String,id:String): Observable<any> {
+  public async carType(Type:String,id:String): Promise<any> {
     const url =Autodeal.getPath() +  `/bidding/configure_car/${Type}/${id}`;
-    return this.http.post(url,Type);
+    const token = await this.authService.getTokenFromStorage();
+    console.log("token>>>"+token)
+    return this.http.post(url, {
+      headers: new HttpHeaders().set('Authorization', token)
+    });
   }
   public async gettrim(sessionid): Promise<any> {
     const url =Autodeal.getPath() + `/bidding/configure_car/trims/${sessionid}`;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserServiceService } from '../sdk/custom/user-service.service';
+import { AuthService } from '../sdk/core/auth.service';
 
 @Component({
   selector: 'app-userlogin',
@@ -11,8 +12,9 @@ export class UserloginPage implements OnInit {
   email: any;
   password: any;
   loading: boolean;
+  
 
-  constructor(private router: Router,private userServiceService : UserServiceService) { }
+  constructor(private router: Router,private authService : AuthService ,private userServiceService : UserServiceService) { }
 
   ngOnInit() {
   }
@@ -31,8 +33,8 @@ export class UserloginPage implements OnInit {
       data => {
         console.log('got response from server', data);
         this.loading = false;
-      // this.authService.saveTokenToStorage(data.token);
-        //this.router.navigateByUrl('/dealer-dashboard');
+        this.authService.saveTokenToStorage(data.token);
+        // this.router.navigateByUrl('/dealer-dashboard');
         this.router.navigateByUrl('/home');
       // href='/dealer-dashboard';
       },

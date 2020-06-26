@@ -9,16 +9,19 @@ import { LiveBiddingService } from '../sdk/custom/live-bidding.service';
 export class CustomerBiddingSessionPage implements OnInit {
 dataz;
 car;
+flag=0;
 
   constructor(private liveBiddingService:LiveBiddingService) { 
 
     this.liveBiddingService.newsessio()//through socket
-  .subscribe(data=> {this.dataz=data;console.log("new");console.log(this.dataz);this.car = this.dataz.targetCar ;console.log("type "+typeof this.dataz)});
+  .subscribe(data=> {this.dataz=data;console.log("new");console.log(this.dataz);this.car = this.dataz.biddingInfo.targetCar;console.log("type "+typeof this.dataz)});
   
   }
 
   ngOnInit() {
-    this.joinnew()
+    
+    this.joinnew();
+    
   }
   joinnew(){
     this.liveBiddingService.NewJoin(); 

@@ -15,7 +15,7 @@
           <ion-badge *ngIf="bidding.unseen>0" color="warning"><strong>{{bidding.unseen}}</strong> NEW !</ion-badge> 
           &nbsp;&nbsp;&nbsp;                              
           <!-- <ion-button  (click)="join(bidding._id)" href="/bidding-session" color="tertiary"> -->
-          <ion-button  [routerLink]="['/bidding-session']" [queryParams]="{ session_id:bidding._id}"    color="tertiary">
+          <ion-button  [routerLink]="['/bidding-session']" [queryParams]="{ session_id:bidding._id,user:true }"    color="tertiary">
             Participate &nbsp;
           <ion-icon name="open-outline"></ion-icon>
           </ion-button>
@@ -26,6 +26,23 @@
   
     <div *ngIf="loading">
       <ion-list>
+        <ion-item *ngFor="let item of skeletonlist">
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+  
       </ion-list>
     </div>
   </ion-content>
