@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IsLoginGuard } from './sdk/custom/guards/islogin.guard';
+import { RedirectLoginGuard } from './sdk/custom/guards/redirectlogin.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'customer-bidding-session', pathMatch: 'full' },
@@ -44,18 +45,22 @@ const routes: Routes = [
   },
   {
     path: 'userlogin',
+    canActivate: [RedirectLoginGuard],
     loadChildren: () => import('./userlogin/userlogin.module').then( m => m.UserloginPageModule)
   },
   {
     path: 'usersignup',
+    canActivate: [RedirectLoginGuard],
     loadChildren: () => import('./usersignup/usersignup.module').then( m => m.UsersignupPageModule)
   },
   {
     path: 'dealerlogin',
+    canActivate: [RedirectLoginGuard],
     loadChildren: () => import('./dealerlogin/dealerlogin.module').then( m => m.DealerloginPageModule)
   },
   {
     path: 'registerdealer',
+    canActivate: [RedirectLoginGuard],
     loadChildren: () => import('./registerdealer/registerdealer.module').then( m => m.RegisterdealerPageModule)
   }
 ];

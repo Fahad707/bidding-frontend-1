@@ -8,13 +8,23 @@
    <h1 class="example">AutoDeal</h1> 
   </ion-title>
 
-  <ion-buttons slot="end">
+  <ion-buttons *ngIf="login==null" slot="end">
    <ion-button class="eg" fill="clear" href="/userlogin">
       &nbsp; &nbsp;
       <ion-icon name="person-outline"></ion-icon>
        Login
     </ion-button>
   </ion-buttons>
+<!-- ==================================================== -->
+<ion-buttons *ngIf="login==1" slot="end">
+  &nbsp; &nbsp;
+  <div  matTooltip="Active user : {{name}}"  style="font-size:larger;display:inline-block; border-radius: px;border-style: double;border-color:yellow"><ion-badge>{{letter}}</ion-badge></div>
+  <ion-button class="eg" fill="clear"  (click)="logoutt()">
+    
+      Logout
+   </ion-button>
+ </ion-buttons>
+
 <!-- ==================================================== -->
 <ion-buttons slot="primary">
     <ion-button  class="eg" fill="clear" href="/dealer-dashboard" >
