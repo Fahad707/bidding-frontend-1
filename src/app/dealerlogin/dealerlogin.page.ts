@@ -4,6 +4,7 @@ import { DealerService } from '../sdk/custom/dealer.service';
 import { Router} from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { AuthService } from '../sdk/core/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dealerlogin',
@@ -13,7 +14,7 @@ import { AuthService } from '../sdk/core/auth.service';
 export class DealerloginPage implements OnInit {
   
 
-  constructor(private authService:AuthService,private storage: Storage,private router: Router,private dealerService : DealerService) { }
+  constructor(private _snackBar: MatSnackBar,private authService:AuthService,private storage: Storage,private router: Router,private dealerService : DealerService) { }
   loading = false;
   name;
   password;
@@ -37,6 +38,9 @@ export class DealerloginPage implements OnInit {
 
     this.dealerService.dealerLogin(loginData).subscribe(
       data => {
+        this._snackBar.open("Successfuly logged in" ,"Dealer Name  : " + this.name, {
+          duration: 2500,
+        });
         console.log('got response from server', data);
         this.loading = false;
         this.login = 1;

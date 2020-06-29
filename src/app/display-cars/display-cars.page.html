@@ -21,8 +21,8 @@
 <ion-content>
   {{noofcarsrows}}
 <div class="ion-padding">
-  <ion-row class="horizontal-cards">
-    <ion-col *ngFor="let item of cars" size="4">
+  <ion-row class="horizontal-cards" style="width:100%">
+    <ion-col *ngFor="let item of cars" size-lg="4" size-sm="6" size-md="6" size-xs="12">
       <div><ion-card color="light">
         <img src="./assets/icon/3549909.jpg">
         <ion-card-header>
