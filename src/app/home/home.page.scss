@@ -23,7 +23,6 @@
   margin: 0;
 }
 .example-tooltip-red {
-  
   font-size:x-large; 
 }
 #container a {
@@ -31,15 +30,38 @@
 }
 
 .example { 
-  font-weight: bold; font-family: Parkavenue, cursive; font-size: 40px;
+  font-weight: bold; font-family: Parkavenue, cursive; font-size: 40px;margin-bottom:19px ;
   }
+
+//   @media only screen and (max-width: 1026px) {
+//     #side {
+//         display: none;
+//     }
+// }
+
+.b{
+  width: 100%;
+  text-align: left;
+}
+.an{
+  left:0;
+  right:0;
+  bottom: 0;
+}
+.any{
+  position: fixed;
+  overflow: hidden;
+  left: 0;
+  width:30%;
+}
 
   .eg { 
     font-weight: bold; 
-    font-size: 15px;
+    font-size: 10px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     left: 10%;
-
+    background-color: #00a4ff;
+    margin-right: -5px;
     }
      
   ion-card{
@@ -53,13 +75,13 @@
   
   .centered {
     position: absolute;
-    top: 35%;
+    top: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-weight: bold; font-size: 20px;
+    font-weight: bold; font-size: 25px;
     color:white;
-    font-size:200%;
     text-decoration: none;
+  
   }
  
   
@@ -85,3 +107,32 @@
     text-align: center;
     font-size: medium;
   }
+  .btn{
+  font-weight: bold; 
+  font-weight: 400; 
+  font-size: 20px;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  left: 28%;
+}
+.btnm{
+  font-weight: bold; 
+  font-weight: 400; 
+  font-size: 20px;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-right: -3px;
+}
+.nav{
+  flex: 1 1 auto;
+}
+
+.one{
+  right:0;
+  left:0;
+}
+
+.btnn{
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Arial,Parkavenue, cursive, sans-serif;
+  margin-bottom:3px ;
+}

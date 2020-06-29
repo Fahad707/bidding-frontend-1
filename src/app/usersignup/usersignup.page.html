@@ -6,7 +6,8 @@
 
 <ion-content>
 
-  <mat-card class="example-card">
+  <div  style="width: 100%;text-align:center;margin-top: 50px;">
+    <mat-card style="display:inline-block; border-radius: px;border-style: double;border-color:mediumblue;" class="example-card">
 
     <mat-card-title>Get the best deal on your new car</mat-card-title>
     <mat-card-subtitle>Top deals from local and national dealers are only a click away.</mat-card-subtitle>
@@ -28,7 +29,7 @@
     
     <mat-label>Password</mat-label>
     <br>
-    <input matInput [(ngModel)]="password">
+    <input type="password" matInput [(ngModel)]="password">
     <br>
 
     <br>
@@ -36,5 +37,5 @@
 
   </mat-card>
 
-
+  </div>
 </ion-content>

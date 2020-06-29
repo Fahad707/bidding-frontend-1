@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserServiceService } from '../sdk/custom/user-service.service';
 import { AuthService } from '../sdk/core/auth.service';
 import { Storage } from '@ionic/storage';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -17,7 +18,9 @@ import { Storage } from '@ionic/storage';
   login = null;
   er;
   username;
-  constructor(private storage: Storage,private router: Router,private authService : AuthService ,private userServiceService : UserServiceService) { }
+  message:"Successfully logged in"
+  action:""
+  constructor(private _snackBar: MatSnackBar,private storage: Storage,private router: Router,private authService : AuthService ,private userServiceService : UserServiceService) { }
 
   ngOnInit() {
   }
@@ -33,7 +36,9 @@ import { Storage } from '@ionic/storage';
     // we need to send this data to our node.js server
     this.userServiceService.userLogin(loginData).subscribe(
       data => {
-        console.log('got response from server', data.data.username);
+        this._snackBar.open("Successfuly logged in" ,"User  : " + data.data.username, {
+          duration: 2500,
+        });
         this.loading = false;
         this.login = 1;
         this.er=0;

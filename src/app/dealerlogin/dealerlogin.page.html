@@ -6,16 +6,18 @@
 
 <ion-content>
  
-   <mat-card class="example-card">
+  <div  style="width: 100%;text-align:center;margin-top: 50px;">
+    <mat-card style="display:inline-block; border-radius: px;border-style: double;border-color:mediumblue;" class="example-card">
 
     <mat-card-title>Dealer dashboard login</mat-card-title>
     <br>
-    
-    <mat-label>Dealership Name</mat-label>
+    <mat-label *ngIf="er==1" style="text-align: center;font-size: large;color:red;">&nbsp;&nbsp;&nbsp;&nbsp;Wrong Username or Password!</mat-label>
+    <br>
+    <mat-label style="font-size: larger;text-align:initial;"><b>DealerShip Name</b></mat-label>&nbsp;<ion-icon name="mail-outline"></ion-icon>
     <br>
     <input matInput  [(ngModel)]="name">
     <br>
-    <mat-label>Password</mat-label>
+    <mat-label style="font-size: larger;text-align:left;"><b>Password</b></mat-label>&nbsp;<ion-icon name="key-outline"></ion-icon>
     <br>
     <input matInput type="password" [(ngModel)]="password">
     <br>
@@ -27,6 +29,6 @@
     <ion-button expand="block" (click)="save()">Log in</ion-button>
     <!-- [(ngModel)]="messageText -->
    </mat-card>
-
+  </div>
  
 </ion-content>

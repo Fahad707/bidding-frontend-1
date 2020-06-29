@@ -3,120 +3,166 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-toolbar color="primary">
+   <!-- <ion-toolbar color="primary">
   <ion-title >
-   <h1 class="example">AutoDeal</h1> 
+   <h1 class="example"><a style="color:white;text-decoration: none;" href="/home">AutoDeal</a></h1> 
   </ion-title>
 
   <ion-buttons *ngIf="login==null" slot="end">
    <ion-button class="eg" fill="clear" href="/userlogin">
       &nbsp; &nbsp;
       <ion-icon name="person-outline"></ion-icon>
-       Login
+       Log in
     </ion-button>
-  </ion-buttons>
+  </ion-buttons> -->
 <!-- ==================================================== -->
-<ion-buttons *ngIf="login==1" slot="end">
+ <!-- <ion-buttons *ngIf="login==1" slot="end">
   &nbsp; &nbsp;
-  <div  matTooltip="Active user : {{name}}"  style="font-size:larger;display:inline-block; border-radius: px;border-style: double;border-color:yellow"><ion-badge>{{letter}}</ion-badge></div>
-  <ion-button class="eg" fill="clear"  (click)="logoutt()">
+   <div  matTooltip="Active user : {{name}}"  matTooltipClass="example-tooltip-red" style="border-radius: 29px;font-size:larger;display:inline-block; border-radius: px;border-style:solid;border-color:yellow"><ion-badge>{{letter}}</ion-badge></div>  -->
+  <!-- <div  matTooltip="Active user : {{name}}"  matTooltipClass="example-tooltip-red" style="background-color: tomato;text-align: center; width:30px;border-radius: 199px;font-size:larger;display:inline-block; border-radius: px;border-style:solid;border-color:white">{{letter}}</div>-->
+  <!-- <ion-button class="eg" fill="clear"  (click)="logoutt()">
     
-      Logout
+      Log out
    </ion-button>
- </ion-buttons>
+ </ion-buttons>  -->
 
 <!-- ==================================================== -->
-<ion-buttons slot="primary">
+ <!-- <ion-buttons slot="primary">
     <ion-button  class="eg" fill="clear" href="/dealer-dashboard" >
       New Cars
     </ion-button>
-  </ion-buttons>
-<!-- ======================================================= -->
-  <ion-buttons slot="primary">
-    <ion-button fill="clear" class="eg">
-      Used Cars
-    </ion-button>
-  </ion-buttons>
-
-  <ion-buttons slot="primary">
-    <ion-button  fill="clear" class="eg">
-      Car Reviews
-    </ion-button>
-  </ion-buttons>
-
-  <ion-buttons slot="primary">
-    <ion-button fill="clear" class="eg">
-      Car Leasing
-    </ion-button>
-  </ion-buttons>
-  
-
-  <ion-buttons slot="primary">
-    <ion-button fill="clear" class="eg"  href="/engine" >
-      Car Deals(engine)
-    </ion-button>
-  </ion-buttons>
-
-</ion-toolbar>
+  </ion-buttons> 
+ </ion-toolbar> -->
+   <!-- ======================================================= -->
 
 
-<ion-card class ="one">
-  <img  src="./assets/icon/01-Mercedes-Maybach-S-560-4MATIC-4k.jpg" />
-</ion-card>
-<a class="centered">The car buying compaison site</a>
+<!-- <<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>
+__________________________________________ -->
+<!-- style="height: 120vh;" -->
+<div >
+  <mat-toolbar color="primary" class="eg">
+    <mat-toolbar-row>
+      <button mat-icon-button  (click)="sidenav.toggle()" fxShow="true" fxHide.gt-md>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="btnn"><a style="color:white;text-decoration: none;" href="/home">AutoDeal</a></span>
+      <span class="menu-spacer"></span>
+       <div fxShow="true" fxHide.lt-lg>
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+         <button mat-button slot="primary" class="btn" href="/dealer-dashboard">
+           New cars
+          </button>
+          <div fxFlex></div>
+          <button mat-button slot="primary" class="btn">
+            Used cars
+          </button>
+          <button mat-button slot="primary" class="btn">
+            Car reviews
+          </button>
+          <button mat-button slot="primary" class="btn">
+            Car leasing
+          </button>
+          <button mat-button slot="primary" class="btn">
+            Car deals
+          </button>
+          <button mat-button slot="primary" class="btn">
+            Electric cars
+          </button>
+         
 
-<br>
+        </div>
+       <div class ="nav"></div>
+       
+       <ion-buttons *ngIf="login==null" slot="end"> 
+        <ion-button class="eg" fill="clear" href="/userlogin">
+           &nbsp; &nbsp;
+           <ion-icon name="person-outline"></ion-icon>
+           
+            Login
+         </ion-button>
+       </ion-buttons>
+     <!-- ==================================================== -->
+     <ion-buttons *ngIf="login==1" slot="end"> 
+       &nbsp; &nbsp;
+       <!-- <div  matTooltip="Active user : {{name}}"  matTooltipClass="example-tooltip-red" style="border-radius: 29px;font-size:larger;display:inline-block; border-radius: px;border-style:solid;border-color:yellow"><ion-badge>{{letter}}</ion-badge></div> -->
+       <div  matTooltip="Active user : {{name}}"  matTooltipClass="example-tooltip-red" style="background-color: tomato;text-align: center; width:37px;border-radius: 199px;font-size:20px;display:inline-block;border-style:solid;border-color:white">{{letter}}</div>
+       <ion-button class="eg" fill="clear"  (click)="logoutt()">
+         
+           Log out
+        
+          </ion-button>
+      </ion-buttons>
+       <!-- <button mat-button class="btnm"><mat-icon>person</mat-icon>&nbsp;Log in</button> -->
+    </mat-toolbar-row>
+ </mat-toolbar>
 
-<div class="ion-padding">
-<ion-row class="horizontal-cards">
-  <ion-col>
-    <div><ion-card color="light">
-      <img src="./assets/icon/01-Mercedes-Maybach-S-560-4MATIC-4k.jpg">
-      <ion-card-header>
-        <ion-card-title>Skoda</ion-card-title>
-        <ion-card-subtitle>Kamiq</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        Manufacturer deposit contribution increased by £250 to £1,750 lala bad
-      </ion-card-content>
-      <ion-button expand="block">Available Deals</ion-button>  
-    </ion-card></div>
-  </ion-col>
-  <ion-col>
-    <div><ion-card color="light">
-      <img src="./assets/icon/01-Mercedes-Maybach-S-560-4MATIC-4k.jpg">
-      <ion-card-header>
-        <ion-card-title>Skoda</ion-card-title>
-        <ion-card-subtitle>Kamiq</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        Manufacturer deposit contribution increased by £250 to £1,750 lala bad
-      </ion-card-content>
-      <ion-button expand="block">Available Deals</ion-button>
-    </ion-card></div>
-  </ion-col>
-  <ion-col>
-    <div><ion-card color="light">
-      <img src="./assets/icon/01-Mercedes-Maybach-S-560-4MATIC-4k.jpg">
-      <ion-card-header>
-        <ion-card-title>Skoda</ion-card-title>
-        <ion-card-subtitle>Kamiq</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        Manufacturer deposit contribution increased by £250 to £1,750 lala bad
-      </ion-card-content>
-      <ion-button expand="block">Available Deals</ion-button>
-    </ion-card></div>
-  </ion-col>
-</ion-row>
+ <!-- class="any" -->
+   <mat-sidenav-container fxFlexFill >
+    
+    <mat-sidenav-content class="an">
+      <ion-card class ="one">
+        <img  src="./assets/icon/01-Mercedes-Maybach-S-560-4MATIC-4k.jpg" />
+      </ion-card>
+      <a class="centered">The car buying compaison site</a>
+      <div class="ion-padding">
+        <ion-row class="horizontal-cards">
+          <ion-col *ngFor="let item of cars" size="4">
+            <div><ion-card color="light">
+              <img src="./assets/icon/3549909.jpg">
+              <ion-card-header>
+                <ion-card-title>{{item.MAKE}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-card-title>
+                <ion-card-subtitle style="font-size: x-large;">{{item.Model}}</ion-card-subtitle>
+                <ion-card-title><Strong style="color:darkcyan">Starting Pirce</Strong> : ${{item.Trims[0].Price}} </ion-card-title>
+              </ion-card-header>
+            
+             <ion-button expand="block" style="height:45px;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="tertiary"> Get offers &nbsp;</ion-button>  
+            </ion-card>
+          </div>
+          </ion-col>
+          </ion-row>
+        </div> 
+    </mat-sidenav-content>
+
+    <mat-sidenav class="any" #sidenav>
+      
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" href="" mat-list-item><strong>close&nbsp;</strong><ion-icon style="color: crimson;margin-top: 2px;" name="close-outline"></ion-icon></a>
+        <hr>
+        <button mat-button class="b">New cars</button><br>
+        <hr>
+        <button mat-button class="b">Used cars</button><br>
+        <hr>
+        <button mat-button class="b">Car reviews</button><br>
+        <hr>
+        <button mat-button class="b">Car leasing</button><br>
+        <hr>
+        <button mat-button class="b">Car deals</button><br>
+        <hr>
+        <button mat-button class="b">Electric Cars</button><br>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
 </div> 
 
+<!-- __________________________________________
+<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
-<ion-footer>
-  <ion-toolbar>
-    <ion-title>Footer</ion-title>
-  </ion-toolbar>
-  <p>All rights reserved!</p>
-</ion-footer>
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
 
 </ion-content>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { DealerService } from '../sdk/custom/dealer.service';
 import { Router} from '@angular/router';
+import { Storage } from '@ionic/storage';
+import { AuthService } from '../sdk/core/auth.service';
 
 @Component({
   selector: 'app-dealerlogin',
@@ -11,14 +13,18 @@ import { Router} from '@angular/router';
 export class DealerloginPage implements OnInit {
   
 
-  constructor(private router: Router,private dealerService : DealerService) { }
+  constructor(private authService:AuthService,private storage: Storage,private router: Router,private dealerService : DealerService) { }
   loading = false;
   name;
   password;
+  login = null;
+  er;
+  username;
  
   ngOnInit() {
   }
   save() {
+    this.storage.set('login', this.login);
     console.log("Hii");
     const loginData = {
       name:this.name,
@@ -33,12 +39,17 @@ export class DealerloginPage implements OnInit {
       data => {
         console.log('got response from server', data);
         this.loading = false;
-      // this.authService.saveTokenToStorage(data.token);
+        this.login = 1;
+        this.er=0;
+        this.authService.saveTokenToStorage(data.token);
         //this.router.navigateByUrl('/dealer-dashboard');
+        this.storage.set('username', this.name);
+        this.storage.set('login', this.login);
         this.router.navigateByUrl('/home');
       // href='/dealer-dashboard';
       },
       error => {
+        this.er=1;
         this.loading = false;
         console.log('error', error);
       }
