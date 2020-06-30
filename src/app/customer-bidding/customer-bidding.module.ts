@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { CustomerBiddingPageRoutingModule } from './customer-bidding-routing.module';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { CustomerBiddingPage } from './customer-bidding.page';
 
@@ -13,6 +14,7 @@ import { CustomerBiddingPage } from './customer-bidding.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    MatTooltipModule,
     CustomerBiddingPageRoutingModule
   ],
   declarations: [CustomerBiddingPage]

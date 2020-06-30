@@ -25,6 +25,7 @@ export class EnginePage implements OnInit {
 
 });
 this.getengine(this.carid);
+this.createNewSession()
 }
   
   createNewSession()
@@ -32,7 +33,7 @@ this.getengine(this.carid);
     this.biddingServiceService.startBidding(this.user).subscribe(
       data => {
         console.log('got response from server', data);
-       // this.the_data = data.sessionn;        
+       this.the_data = data.data;        
       },
       error => {
         console.log('error', error);

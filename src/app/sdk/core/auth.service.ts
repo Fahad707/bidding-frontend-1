@@ -13,6 +13,7 @@ export class AuthService {
   }
 
   public async getTokenFromStorage() {
+    console.log(this.storage.get('token')+"");
     return await this.storage.get('token');
   }
   public async logout() {

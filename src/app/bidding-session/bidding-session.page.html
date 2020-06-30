@@ -20,16 +20,15 @@
   <ion-list>
   <ion-item *ngFor="let item of messageArray">
     <ion-label><strong><a color="danger">Offer : </a>{{item.message}}</strong></ion-label>
-    
-    <!-- <ion-button color="tertiary">
+    <ion-button *ngIf="role==1" color="tertiary">
       Accept &nbsp;
     <ion-icon name="open-outline"></ion-icon>
-    </ion-button> -->
+    </ion-button>
   </ion-item>
  </ion-list>
 
 
-<div>
+<div *ngIf="role==0">
  <ion-item>
   <ion-label position="stacked">Type a offer</ion-label>
   <ion-input required type="text"  [(ngModel)]="messageText" ></ion-input>

@@ -45,6 +45,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
         this.username = data.data.username;
         this.storage.set('username', this.username);
         this.storage.set('login', this.login);
+        this.storage.set('role',1);
         this.authService.saveTokenToStorage(data.token);
         // this.router.navigateByUrl('/dealer-dashboard');
         this.router.navigateByUrl('/home');

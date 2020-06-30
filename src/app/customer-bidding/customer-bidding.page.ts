@@ -9,7 +9,7 @@ import { LiveBiddingService } from '../sdk/custom/live-bidding.service';
 })
 export class CustomerBiddingPage implements OnInit {
   sessions = 1;
-  loading = false;
+  loading = 'false';
   deleteLoading = false;
   biddings;
   dataz;
@@ -30,12 +30,12 @@ export class CustomerBiddingPage implements OnInit {
   
   
     async getAll() {
-      this.loading = true;
+      this.loading = 'true';
       const observable = await this.biddingServiceService.getAllforCustomer();
       observable.subscribe(
         data => {
           this.biddings = data.data;
-          this.loading = false;
+          this.loading = 'false';
           console.log(data.data);
           console.log("OOOO88888OOOOOOOOO8888OOOOOOOO8888OOOOOOOOOOO8888OOOOOOOOOOOOOO8888OOOOOO");
         },

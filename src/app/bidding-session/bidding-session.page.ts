@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BiddingServiceService } from '../sdk/custom/bidding-service.service';
 import { LiveBiddingService } from '../sdk/custom/live-bidding.service';
 import {ActivatedRoute} from '@angular/router';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-bidding-session',
   templateUrl: './bidding-session.page.html',
@@ -17,7 +18,8 @@ messageArray:Array<{message:String}> = [];
   dataz;
 offer;
 cust : false;
-constructor(private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) 
+role;
+constructor(private storage: Storage,private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) 
 {  this.liveBiddingService.newMessageReceived()
   .subscribe(data=>{this.messageArray.push(data);console.log("OOOOOOOOOOOOOOOO"+this.messageArray)}); 
 
@@ -40,7 +42,8 @@ async ngOnInit() {
       this.join(this.sessionid)
       this.getAll(this.sessionid);//through route//currently using this
       //this.getAll(this.sessionid)
-}
+     
+    }
 
 sendMessage()
 {
@@ -53,6 +56,8 @@ this.liveBiddingService.sendMessage({room:this.sessionid, message:this.messageTe
 }
 
   async getAll(sessionid) {
+    this.role = await this.storage.get('role');
+    console.log("role:"+this.role)
     const observable = await this.biddingServiceService.getAllByid(sessionid);
     observable.subscribe(
       data => {

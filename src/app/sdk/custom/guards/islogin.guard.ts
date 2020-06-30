@@ -12,7 +12,9 @@ export class IsLoginGuard implements CanActivate {
   async canActivate() {
     const token = await this.authService.getTokenFromStorage();
     if (!token) {
+      console.log("not token of isloginguard hit");
       this.router.navigateByUrl('/userlogin');
+
     } else {
       return true;
     }
