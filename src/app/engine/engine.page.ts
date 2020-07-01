@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LiveBiddingService } from '../sdk/custom/live-bidding.service';
 import { BiddingServiceService } from '../sdk/custom/bidding-service.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-engine',
   templateUrl: './engine.page.html',
@@ -15,7 +15,7 @@ export class EnginePage implements OnInit {
   sub: any;
   carid: String;
   onedata: any;
-  constructor(private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) { }
+  constructor(private storage: Storage,private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) { }
 
   async ngOnInit() {
     this.sub = this.activateRouter.queryParams
@@ -25,7 +25,6 @@ export class EnginePage implements OnInit {
 
 });
 this.getengine(this.carid);
-this.createNewSession()
 }
   
   createNewSession()
@@ -43,6 +42,7 @@ this.createNewSession()
   }
 
   async getengine(carid) {
+    this.storage.set('flag',1);
     const observable = await this.biddingServiceService.getengine(carid);
     observable.subscribe(
       data => {

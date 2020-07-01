@@ -19,7 +19,15 @@ cars: [];
   carid;
   sub;
   noofcarsrows;
-  
+  the_data: any;
+  flag;
+  slideOpts = { 
+    initialSlide: 4, 
+    speed: 350, 
+    effect: 'flip', 
+    }; 
+
+
   constructor(private storage: Storage,private authService:AuthService,private carsService:CarsService) {}
 async ngOnInit(){
  this.exec();
@@ -51,7 +59,13 @@ logoutt(){
     
   const observable = await this.carsService.getAllcars();
   observable.subscribe(
-    data => {
+    async data => {
+      this.flag = await this.storage.get('flag');
+      console.log(this.flag)
+console.log(typeof this.flag)
+      if(this.flag=="1"){
+        console.log("recommendations hit"+data.recommendations)
+      this.the_data = data.recommendations; } 
       this.cars = data.data;
       console.log("cars:")
       console.log(data.data);

@@ -122,7 +122,81 @@ __________________________________________ -->
           </div>
           </ion-col>
           </ion-row>
-      </div> 
+      </div>
+      
+      
+
+       <strong *ngIf="flag=='1'" style="font-size: x-large;">      You May Also Like :  </strong>
+        <hr><hr>
+
+
+
+        <div *ngIf="flag=='1'" class="ion-padding">
+          <ion-row class="horizontal-cards" style="width:100%">
+            <ion-col *ngFor="let item of the_data" size-lg="4" size-sm="6" size-md="6" size-xs="12">
+              <div><ion-card color="light">
+                <img src="./assets/icon/3549909.jpg">
+                <ion-card-header>
+                  <ion-card-title>{{item.car_make}}&nbsp;&nbsp;{{item.car_Model}}</ion-card-title>
+                  <ion-card-subtitle style="font-size:large;">{{item.trim_name}}</ion-card-subtitle>
+                  <ion-card-title><Strong style="color:cornflowerblue">Pirce</Strong> : ${{item.trim_Price}} </ion-card-title>
+                </ion-card-header>
+              
+               <ion-button expand="block" style="height:45px;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item.car_id}" color="tertiary"> Get offers &nbsp;</ion-button>  
+              </ion-card>
+            </div>
+            </ion-col>
+            </ion-row>
+          </div>
+
+        <ion-slides pager="true" [options]="slideopts" style="height: 100%;" >  
+            <ion-slide  *ngFor="let item of the_data" > 
+              
+                <img style="height: 1%;width:50%" src="./assets/icon/3549909.jpg">
+              
+                  <p>{{item.car_make}}&nbsp;&nbsp;{{item.car_Model}}</p>
+                  <br>
+                  <p style="font-size:large;">{{item.trim_name}}</p>
+                  <br>
+                  <p><Strong style="color:cornflowerblue">Pirce</Strong> : ${{item.trim_Price}} </p>
+                  <br>
+               <ion-button expand="block" style="height:45px;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item.car_id}" color="tertiary"> Get offers &nbsp;</ion-button>  
+              
+            </ion-slide> 
+           
+            </ion-slides>
+
+
+
+
+
+
+
+
+<!-- <div *ngFor="let item of the_data" class="category-block">
+
+<ion-row no-padding class="category-banner">
+<ion-col text-left button tappable (click)="cat.expanded = !cat.expand" align-self-center>
+{{cat.caegory}}
+</ion-col>
+</ion-row>
+<ion-sldes [options]="sliderConfig">
+
+</ion-sldes>
+
+        <<ion-list>
+           
+            </ion-item>
+            <ion-item>
+            </ion-item>
+         </ion-list> 
+          </div> -->
+
+
+
+
+
+
     </mat-sidenav-content>
 
     <mat-sidenav class="any" #sidenav>
