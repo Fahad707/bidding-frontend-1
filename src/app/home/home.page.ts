@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../sdk/core/auth.service';
 import { Storage } from '@ionic/storage';
 import { CarsService } from '../sdk/custom/cars.service';
+import { BiddingServiceService } from '../sdk/custom/bidding-service.service';
 
 
 @Component({
@@ -26,9 +27,11 @@ cars: [];
     speed: 350, 
     effect: 'flip', 
     }; 
+  role: any;
+  info: any;
 
 
-  constructor(private storage: Storage,private authService:AuthService,private carsService:CarsService) {}
+  constructor(private storage: Storage,private authService:AuthService,private carsService:CarsService,private biddingServiceService:BiddingServiceService) {}
 async ngOnInit(){
  this.exec();
  this.name = await this.storage.get('username');
@@ -42,6 +45,8 @@ async ngOnInit(){
 
  console.log(this.letter);
  this.getAll();
+ this.getAllnotifications();
+ this.checkrole()
 }
 ne(){
 this.toshow=1
@@ -53,7 +58,38 @@ logoutt(){
  async exec(){
  this.login = await this.storage.get('login');
  console.log(this.login);
- }
+
+
+}
+
+
+async checkrole(){
+
+  this.role = await this.storage.get('role');
+  console.log("role");
+  console.log(this.role);
+  console.log(typeof this.role);
+
+}
+
+
+
+async getAllnotifications() {
+    
+  const observable = await this.biddingServiceService.getAll();
+  observable.subscribe(
+    data => {
+      this.info = data.data;
+      console.log('data.data', data.data);
+    },
+    err => {
+      console.log('err', err);
+    }
+  );
+}
+
+//*************************************************************************** */
+//*************************************************************************** */
  
  async getAll() {
     
@@ -62,7 +98,7 @@ logoutt(){
     async data => {
       this.flag = await this.storage.get('flag');
       console.log(this.flag)
-console.log(typeof this.flag)
+       console.log(typeof this.flag)
       if(this.flag=="1"){
         console.log("recommendations hit"+data.recommendations)
       this.the_data = data.recommendations; } 

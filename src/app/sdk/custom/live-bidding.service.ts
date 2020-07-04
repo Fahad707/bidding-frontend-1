@@ -51,7 +51,7 @@ sendMessage(data)
     this.socket.emit('message',data);
 }
 newMessageReceived(){
-    let observable = new Observable<{message:String}>(observer=>{
+    let observable = new Observable<{message:any,dinfo:Object,incentive:any}>(observer=>{
         this.socket.on('new message', (data)=>{
             observer.next(data);
             console.log("newMessageReceived");

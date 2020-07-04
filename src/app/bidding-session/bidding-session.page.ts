@@ -3,25 +3,49 @@ import { BiddingServiceService } from '../sdk/custom/bidding-service.service';
 import { LiveBiddingService } from '../sdk/custom/live-bidding.service';
 import {ActivatedRoute} from '@angular/router';
 import { Storage } from '@ionic/storage';
+import {Inject} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+export interface DialogData {
+  price: string;
+  incentive: string;
+}
+
+
 @Component({
   selector: 'app-bidding-session',
   templateUrl: './bidding-session.page.html',
   styleUrls: ['./bidding-session.page.scss'],
 })
 export class BiddingSessionPage implements OnInit{
+  price: string;
+  year;
 sessionid:String;
 sub;
 onedata;
 messageText:String;
-messageArray:Array<{message:String}> = [];
+messageArray:Array<{message:any}> = [];
   user: any;
   dataz;
 offer;
 cust : false;
 role;
-constructor(private storage: Storage,private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) 
-{  this.liveBiddingService.newMessageReceived()
-  .subscribe(data=>{this.messageArray.push(data);console.log("OOOOOOOOOOOOOOOO"+this.messageArray)}); 
+  animal: any;
+  uname: any;
+  email: any;
+  phone: any;
+  street: any;
+  city: any;
+  state: any;
+  zip: any;
+  id: any;
+  incentive: any;
+  msg;
+  ll:'';
+  
+constructor(public dialog: MatDialog,private storage: Storage,private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) 
+{  this.liveBiddingService.newMessageReceived().subscribe(datax=>{/*this.msg=datax;this.ll=datax.message;
+    */this.messageArray.push(datax);console.log("OOOOOOOOOOOOOOOO "+this.messageArray);
+    console.log(datax);console.log(typeof datax.message);console.log(datax.incentive)}); 
 
   
   this.liveBiddingService.newUserJoined()//through socket
@@ -45,15 +69,60 @@ async ngOnInit() {
      
     }
 
-sendMessage()
+sendMessage(price,info,incentive1)
 {
 //  this.liveBiddingService.sendMessage({room:this.sessionid, message:this.messageText});
 //   console.log("messageText:"+this.messageText)
-this.liveBiddingService.sendMessage({room:this.sessionid, message:this.messageText});
-  console.log("messageText:"+this.messageText)
+this.liveBiddingService.sendMessage({room:this.sessionid,message:price,dealerInfo:info,incentive:incentive1});
+ console.log("messageText:"+incentive1)
   console.log(this.sessionid)
     this.messageText="";
 }
+
+openDialog(){
+  const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    width: '350px',
+    data: {price: this.price, incentive: this.incentive}
+  });
+
+  dialogRef.afterClosed().subscribe(async result => {
+    console.log('The dialog was closed');
+    if(result.price && result.incentive){
+    this.price = result.price;
+    this.incentive = result.incentive;
+    console.log(result);
+    console.log("***********^<^><^>^<<><><><>><><><><><><><><><><><><><><><><><><><>***************");
+    this.uname = await this.storage.get("username");
+    this.email = await this.storage.get("email");
+    this.phone= await this.storage.get("phone");
+    this.street = await this.storage.get("street");
+    this.city= await this.storage.get("city");
+    this.state = await this.storage.get("state");
+    this.zip = await this.storage.get("zip");
+    this.id = await this.storage.get("id");
+    
+    const dealerInfo ={
+      uname : this.uname ,
+      email :this.email,
+      phone:this.phone,
+      street:this.street ,
+      city:this.city,
+      state:this.state,
+      zip:this.zip,
+      id:this.id
+      
+    }
+   console.log("<      <  <street>  >     >")
+   console.log(this.street);
+   console.log(dealerInfo);
+   this.sendMessage(this.price,dealerInfo,this.incentive)
+    }
+  });
+}
+  // incentive(price: string, dealerInfo: { uname: any; email: any; phone: any; street: any; city: any; state: any; zip: any; id: any; }, incentive: any) {
+  //   throw new Error("Method not implemented.");
+  // }
+
 
   async getAll(sessionid) {
     this.role = await this.storage.get('role');
@@ -76,8 +145,29 @@ this.liveBiddingService.sendMessage({room:this.sessionid, message:this.messageTe
     this.liveBiddingService.ExistingRoomJoin({room:sessionid});
     console.log("id::::::::"+sessionid);
 }
+
+
+
+
 }
 //make a function that takes the specific bidding instance from the db 
 //by its id from url params.......
 //put that function in ngoninit 
 //like book detail uses its id..............
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialog-overview-example-dialog.html',
+})
+export class DialogOverviewExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  
+
+}

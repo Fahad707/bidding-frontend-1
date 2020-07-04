@@ -1,0 +1,14 @@
+<div mat-dialog-content>
+  <p>&nbsp;&nbsp;What's your offer?</p>
+  <div>
+    <ion-label>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </ion-label>
+    <input matInput [(ngModel)]="data.price">
+    <br><br>
+    <ion-label>Any Incentive &nbsp; </ion-label>
+    <input matInput [(ngModel)]="data.incentive">
+  </div>
+</div>
+<div mat-dialog-actions>
+  <ion-button mat-button (click)="onNoClick()">cancel &nbsp;<ion-icon style="color: crimson;margin-top: 2px;" name="close-outline"></ion-icon></ion-button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-button style="background-color:green; border-style: double;border-radius:8px;float:right;"  mat-button (click)="onOkClick()" [mat-dialog-close]="data" cdkFocusInitial>Done</ion-button>
+</div>

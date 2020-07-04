@@ -12,18 +12,40 @@
 <ion-content> 
   <ion-list>
     <ion-item *ngFor="let item of onedata?.offers">
-      <ion-label><strong><a color="danger">Offer : </a>{{item.Condition}}</strong></ion-label>  
+      <ion-item >
+      <ion-label><strong><a color="danger">Offer : </a>{{item.Condition}}  &nbsp;&nbsp; {{item.Price}}</strong></ion-label>  
+    </ion-item>
+    <br/> 
+    <ion-item>
+      <ion-label><strong><a color="danger">Dated :</a>{{item.date}}  &nbsp;&nbsp;Time : &nbsp; {{item.time}}</strong></ion-label>  
+      <br/> 
+    </ion-item>
+  <ion-item>
+      <ion-label><strong><a color="danger">Dealership :</a>{{item.dealershipName}}  &nbsp;&nbsp;Email : &nbsp;  {{item.email}} &nbsp; Address : {{item.dealershipstreet}},{{item.dealershipcity}},{{item.dealershipstate}}</strong></ion-label>  
+    </ion-item>
     </ion-item>  
     <!-- {{onedata?.offers}} -->
   </ion-list>
 
   <ion-list>
   <ion-item *ngFor="let item of messageArray">
-    <ion-label><strong><a color="danger">Offer : </a>{{item.message}}</strong></ion-label>
+    <ion-item >
+      <ion-label><strong><a color="danger">Offers : </a>{{item.message}}  &nbsp;&nbsp; {{item.Price}}</strong></ion-label>  
+    </ion-item>
+    <br/> 
+    <ion-item>
+      <ion-label><strong><a color="danger">Dated :</a>{{item.date}}  &nbsp;&nbsp;Time : &nbsp; {{item.time}}</strong></ion-label>  
+      <br/> 
+    </ion-item>
+  <ion-item>
+      <ion-label><strong><a color="danger">Dealership :</a>{{item.dinfo.uname}}  &nbsp;&nbsp;Email : &nbsp;  {{item.dinfo.email}} &nbsp; Address : {{item.dinfo.street}},{{item.dinfo.city}},{{item.dinfo.state}}</strong></ion-label>  
+    </ion-item> 
+    <!-- <ion-label><strong><a color="danger">Offer by {{uname}} : </a>{{item.message}}</strong></ion-label> -->
     <ion-button *ngIf="role==1" color="tertiary">
       Accept &nbsp;
     <ion-icon name="open-outline"></ion-icon>
     </ion-button>
+    
   </ion-item>
  </ion-list>
 
@@ -33,8 +55,11 @@
   <ion-label position="stacked">Type a offer</ion-label>
   <ion-input required type="text"  [(ngModel)]="messageText" ></ion-input>
  </ion-item>
-    
- <ion-button (click)="sendMessage()">Give an offer</ion-button>
+ <ion-button (click)="openDialog()" >Give an offer</ion-button> 
+ <!-- <ion-button (click)="sendMessage()">Give an offer</ion-button> -->
+ <ol><li *ngIf="price">
+  You chose: <i>{{price}}</i>
+</li></ol>
 </div>
 </ion-content>  
 

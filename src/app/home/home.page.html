@@ -47,10 +47,15 @@ __________________________________________ -->
         <mat-icon>menu</mat-icon>
       </button>
       <span class="btnn"><a style="color:white;text-decoration: none;" href="/home">AutoDeal</a></span>
-      <span class="menu-spacer"></span>
+      
+
+
+      <span *ngIf="role!=0"  class="menu-spacer"></span>
        <div fxShow="true" fxHide.lt-lg>
         <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-         <button mat-button slot="primary" class="btn" href="/dealer-dashboard">
+
+        
+        <button mat-button slot="primary" class="btn" href="/dealer-dashboard">
            New cars
           </button>
           <div fxFlex></div>
@@ -69,7 +74,16 @@ __________________________________________ -->
           <button mat-button slot="primary" class="btn">
             Electric cars
           </button>
-         
+      
+          
+         <!-- <button mat-button  *ngIf="role==0" slot="primary" class="btn" href="/bidding">
+            Bidding Sessions
+          <ion-icon name="notifications" ></ion-icon>
+          <ion-badge  *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>     
+          </button> 
+     -->
+
+
 
         </div>
        <div class ="nav"></div>
@@ -94,8 +108,27 @@ __________________________________________ -->
           </ion-button>
       </ion-buttons>
        <!-- <button mat-button class="btnm"><mat-icon>person</mat-icon>&nbsp;Log in</button> -->
-    </mat-toolbar-row>
- </mat-toolbar>
+  
+      </mat-toolbar-row >
+       
+     
+  <mat-toolbar-row style="margin-top: -10px;">
+    <div fxShow="true" fxHide.lt-lg>
+
+      
+    <ion-buttons  style="margin-left:1040px"  *ngIf="role==0"  slot="end">
+      <ion-button  expand="block"  class="btnd" href="/bidding">
+        Bidding Sessions
+        <ion-icon name="notifications" ></ion-icon>
+        &nbsp;
+        <ion-badge   *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>     
+       </ion-button>
+    </ion-buttons>
+  
+  </div>  
+  </mat-toolbar-row>   
+  </mat-toolbar>
+
 
  <!-- class="any" -->
    <mat-sidenav-container fxFlexFill >
@@ -126,11 +159,11 @@ __________________________________________ -->
       
       
 
-       <strong *ngIf="flag=='1'" style="font-size: x-large;">      You May Also Like :  </strong>
+       <strong *ngIf="flag=='1'" style="font-size: x-large;"> &nbsp;&nbsp;&nbsp;&nbsp;     You May Also Like :  </strong>
         <hr><hr>
 
 
-
+<!-- 
         <div *ngIf="flag=='1'" class="ion-padding">
           <ion-row class="horizontal-cards" style="width:100%">
             <ion-col *ngFor="let item of the_data" size-lg="4" size-sm="6" size-md="6" size-xs="12">
@@ -147,24 +180,61 @@ __________________________________________ -->
             </div>
             </ion-col>
             </ion-row>
-          </div>
+          </div> -->
 
-        <ion-slides pager="true" [options]="slideopts" style="height: 100%;" >  
+        <!-- <ion-slides pager="true" [options]="slideopts" style="height: 100%;" >  
             <ion-slide  *ngFor="let item of the_data" > 
               
-                <img style="height: 1%;width:50%" src="./assets/icon/3549909.jpg">
-              
-                  <p>{{item.car_make}}&nbsp;&nbsp;{{item.car_Model}}</p>
-                  <br>
-                  <p style="font-size:large;">{{item.trim_name}}</p>
-                  <br>
-                  <p><Strong style="color:cornflowerblue">Pirce</Strong> : ${{item.trim_Price}} </p>
-                  <br>
+              <ion-card color="light">
+             
+                <ion-card-header>
+                  <img style="height:250px" src="./assets/icon/3549909.jpg">
+                 
+                </ion-card-header>
+              <ion-card-content>
+                <ion-card-title>{{item.car_make}}&nbsp;&nbsp;{{item.car_Model}}</ion-card-title>
+                <ion-card-subtitle style="font-size:large;">{{item.trim_name}}</ion-card-subtitle>
+                <ion-card-title><Strong style="color:cornflowerblue">Pirce</Strong> : ${{item.trim_Price}} </ion-card-title>
+              </ion-card-content>
                <ion-button expand="block" style="height:45px;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item.car_id}" color="tertiary"> Get offers &nbsp;</ion-button>  
-              
+              </ion-card>
+
             </ion-slide> 
            
-            </ion-slides>
+            </ion-slides> -->
+
+
+
+            <ion-grid fixed >
+<ion-row>
+
+<ion-col size="12">
+<ion-segment scrollable style="left:0;right:0;">
+<div *ngFor="let item of the_data" >
+              <ion-card color="light" style="margin-top: 20px;border-style: solid;border-color:royalblue;height:450px;width:150%;margin-right: 160px;padding-right: 0px;" >
+             
+                <ion-card-header>
+                  <img style="height:200px" src="./assets/icon/3549909.jpg">
+                  <h2>{{item.car_make}}&nbsp;&nbsp;{{item.car_Model}}</h2>
+                  <h3 style="font-size:large;">{{item.trim_name}}</h3>
+                  <h2><Strong style="color:cornflowerblue">Pirce</Strong> : ${{item.trim_Price}} </h2>  
+                  <ion-button expand="block" style="height:45px;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item.car_id}" color="tertiary"> Get offers &nbsp;</ion-button>  
+                </ion-card-header>
+              <ion-card-content>
+               
+              </ion-card-content>
+             
+              </ion-card>
+          </div>
+
+</ion-segment>
+
+</ion-col>
+
+</ion-row>
+
+
+            </ion-grid>
 
 
 
@@ -203,6 +273,15 @@ __________________________________________ -->
       
       <mat-nav-list>
         <a (click)="sidenav.toggle()" href="" mat-list-item><strong>close&nbsp;</strong><ion-icon style="color: crimson;margin-top: 2px;" name="close-outline"></ion-icon></a>
+        <br>
+        <ion-buttons  *ngIf="role==0"  slot="primary">
+          &nbsp;&nbsp;&nbsp;<ion-button  expand="block"  class="btnd" href="/bidding">
+            Bidding Sessions
+            <ion-icon name="notifications" ></ion-icon>
+            &nbsp;
+            <ion-badge   *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>     
+           </ion-button>
+        </ion-buttons>
         <hr>
         <button mat-button class="b">New cars</button><br>
         <hr>

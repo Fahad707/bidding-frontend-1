@@ -52,7 +52,7 @@
   position: fixed;
   overflow: hidden;
   left: 0;
-  width:30%;
+  width:66%;
 }
 
   .eg { 
@@ -113,6 +113,16 @@
   font-size: 20px;
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   left: 28%;
+}
+.btnd{
+  font-weight: bold; 
+  font-weight: 400; 
+  font-size: 20px;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-left: -4px;
+  border-style:solid;
+  border-color:brown;
+  border-radius: 22px;
 }
 .btnm{
   font-weight: bold; 

@@ -4,7 +4,7 @@ import { IsLoginGuard } from './sdk/custom/guards/islogin.guard';
 import { RedirectLoginGuard } from './sdk/custom/guards/redirectlogin.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'customer-bidding-session', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
     path: 'dealer-dashboard',

@@ -3,18 +3,20 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import { BiddingSessionPageRoutingModule } from './bidding-session-routing.module';
 
-import { BiddingSessionPage } from './bidding-session.page';
+import { BiddingSessionPage, DialogOverviewExampleDialog } from './bidding-session.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    MatDialogModule,
     BiddingSessionPageRoutingModule
   ],
-  declarations: [BiddingSessionPage]
+  entryComponents:[DialogOverviewExampleDialog],
+  declarations: [DialogOverviewExampleDialog ,BiddingSessionPage]
 })
 export class BiddingSessionPageModule {}
