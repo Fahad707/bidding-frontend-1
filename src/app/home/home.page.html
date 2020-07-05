@@ -43,7 +43,7 @@ __________________________________________ -->
 <div >
   <mat-toolbar color="primary" class="eg">
     <mat-toolbar-row>
-      <button mat-icon-button  (click)="sidenav.toggle()" fxShow="true" fxHide.gt-md>
+      <button mat-icon-button matTooltip="Click to open side menu" (click)="sidenav.toggle()" fxShow="true" fxHide.gt-md>
         <mat-icon>menu</mat-icon>
       </button>
       <span class="btnn"><a style="color:white;text-decoration: none;" href="/home">AutoDeal</a></span>
@@ -117,11 +117,11 @@ __________________________________________ -->
 
       
     <ion-buttons  style="margin-left:1040px"  *ngIf="role==0"  slot="end">
-      <ion-button  expand="block"  class="btnd" href="/bidding">
+      <ion-button  matTooltip="Click to see bidding sessions' list " expand="block"  class="btnd" href="/bidding">
         Bidding Sessions
-        <ion-icon name="notifications" ></ion-icon>
-        &nbsp;
-        <ion-badge   *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>     
+        <!-- <ion-icon name="notifications" ></ion-icon> -->
+        <mat-icon *ngIf="info.notification!=0" matBadge={{info.notification}} matBadgeColor="warn" matBadgeSize="large" name="notifications">notification_important</mat-icon>
+        <!-- <ion-badge   *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>      -->
        </ion-button>
     </ion-buttons>
   
@@ -275,11 +275,12 @@ __________________________________________ -->
         <a (click)="sidenav.toggle()" href="" mat-list-item><strong>close&nbsp;</strong><ion-icon style="color: crimson;margin-top: 2px;" name="close-outline"></ion-icon></a>
         <br>
         <ion-buttons  *ngIf="role==0"  slot="primary">
-          &nbsp;&nbsp;&nbsp;<ion-button  expand="block"  class="btnd" href="/bidding">
+          &nbsp;&nbsp;&nbsp;<ion-button  expand="block"  class="btnr" href="/bidding">
             Bidding Sessions
-            <ion-icon name="notifications" ></ion-icon>
+            <!-- <ion-icon   *ngIf="info.notification!=0" matBadge={{info.notification}} matBadgeColor="warn" matBadgeSize="large" name="notifications" ></ion-icon> -->
+            <mat-icon *ngIf="info.notification!=0" matBadge={{info.notification}} matBadgeColor="warn"  name="notifications">notification_important</mat-icon>
             &nbsp;
-            <ion-badge   *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>     
+            <!--matBadgeSize="large" <ion-badge   *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>      -->
            </ion-button>
         </ion-buttons>
         <hr>

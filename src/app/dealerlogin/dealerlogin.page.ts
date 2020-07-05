@@ -69,7 +69,7 @@ export class DealerloginPage implements OnInit {
         console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^");
         this.storage.set('login', this.login);
         this.storage.set('role',0);
-        //this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/home');
         //href='/dealer-dashboard';
       },
       error => {

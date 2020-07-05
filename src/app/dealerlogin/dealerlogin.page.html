@@ -15,11 +15,33 @@
     <br>
     <mat-label style="font-size: larger;text-align:initial;"><b>Dealership Name</b></mat-label>&nbsp;<ion-icon name="mail-outline"></ion-icon>
     <br>
-    <input matInput  [(ngModel)]="name">
+    <input matInput  [(ngModel)]="name" style="display: block;
+    width: 60%;
+    height: calc(2rem + 2px);
+    padding: .625rem .75rem;
+    line-height: 1.5;
+    /* color: #8898aa; */
+    /* background-color: #fff; */
+    background-clip: padding-box;
+    border: 1px solid #cad1d7;
+    border-radius: .5rem;
+    box-shadow: none;transition: all .2s cubic-bezier(.68,-.55,.265,1.55);
+    margin-left: 20%;">
     <br>
     <mat-label style="font-size: larger;text-align:left;"><b>Password</b></mat-label>&nbsp;<ion-icon name="key-outline"></ion-icon>
     <br>
-    <input matInput type="password" [(ngModel)]="password">
+    <input matInput type="password" [(ngModel)]="password" style="display: block;
+    width: 60%;
+    height: calc(2rem + 2px);
+    padding: .625rem .75rem;
+    line-height: 1.5;
+    /* color:black;
+    background-color:black; */
+    background-clip: padding-box;
+    border: 1px solid #cad1d7;
+    border-radius: .5rem;
+    box-shadow: none;transition: all .2s cubic-bezier(.68,-.55,.265,1.55);
+    margin-left: 20%;">
     <br>
     <mat-checkbox>Remember me</mat-checkbox>
     <br>

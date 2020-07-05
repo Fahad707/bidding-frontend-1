@@ -57,7 +57,7 @@
 
   .eg { 
     font-weight: bold; 
-    font-size: 10px;
+    font-size: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     left: 10%;
     background-color: #00a4ff;
@@ -120,9 +120,19 @@
   font-size: 20px;
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-left: -4px;
-  border-style:solid;
-  border-color:brown;
-  border-radius: 22px;
+  // border-style:solid;
+  // border-color:brown;
+  // border-radius: 22px;
+  height: 60px;
+  width: 280px;
+}
+.btnr{
+  font-weight: bold; 
+  font-weight: 400; 
+  font-size: 20px;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-left: -4px;
+  height: 50px;
 }
 .btnm{
   font-weight: bold; 

@@ -29,6 +29,7 @@ messageArray:Array<{message:any}> = [];
 offer;
 cust : false;
 role;
+headerRow: [ 'AutoDeal offer', 'You save']
   animal: any;
   uname: any;
   email: any;
@@ -41,11 +42,33 @@ role;
   incentive: any;
   msg;
   ll:'';
-  
+  date;
+  time;
+  delivery: any;
+
+
 constructor(public dialog: MatDialog,private storage: Storage,private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) 
 {  this.liveBiddingService.newMessageReceived().subscribe(datax=>{/*this.msg=datax;this.ll=datax.message;
     */this.messageArray.push(datax);console.log("OOOOOOOOOOOOOOOO "+this.messageArray);
-    console.log(datax);console.log(typeof datax.message);console.log(datax.incentive)}); 
+    console.log(datax);console.log(typeof datax.message);console.log(datax.incentive);
+    var d = new Date(); // for now
+    d.getHours();
+    d.getMinutes();
+    d.getSeconds();
+    this.time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+      var ddd = "0" + dd;
+    }
+    if (mm < 10) {
+      var mmm = "0" + mm;
+    }
+    this.date = mmm + "/" + ddd + "/" + yyyy;
+  }); 
 
   
   this.liveBiddingService.newUserJoined()//through socket
@@ -69,11 +92,11 @@ async ngOnInit() {
      
     }
 
-sendMessage(price,info,incentive1)
+sendMessage(price,info,incentive1,tdelivery)
 {
 //  this.liveBiddingService.sendMessage({room:this.sessionid, message:this.messageText});
 //   console.log("messageText:"+this.messageText)
-this.liveBiddingService.sendMessage({room:this.sessionid,message:price,dealerInfo:info,incentive:incentive1});
+this.liveBiddingService.sendMessage({room:this.sessionid,message:price,dealerInfo:info,incentive:incentive1,delivery:tdelivery});
  console.log("messageText:"+incentive1)
   console.log(this.sessionid)
     this.messageText="";
@@ -90,6 +113,7 @@ openDialog(){
     if(result.price && result.incentive){
     this.price = result.price;
     this.incentive = result.incentive;
+    this.delivery =  result.checked;
     console.log(result);
     console.log("***********^<^><^>^<<><><><>><><><><><><><><><><><><><><><><><><><>***************");
     this.uname = await this.storage.get("username");
@@ -115,7 +139,7 @@ openDialog(){
    console.log("<      <  <street>  >     >")
    console.log(this.street);
    console.log(dealerInfo);
-   this.sendMessage(this.price,dealerInfo,this.incentive)
+   this.sendMessage(this.price,dealerInfo,this.incentive,this.delivery)
     }
   });
 }

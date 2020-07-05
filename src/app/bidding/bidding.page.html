@@ -10,6 +10,7 @@
   <div *ngIf="!loading">
     <ion-list>
       <ion-item *ngFor="let bidding of biddings">
+        <!-- .slice().reverse() -->
         <ion-label><strong>Started at : {{bidding.started_at.time}} on {{bidding.started_at.date}}</strong></ion-label>
         <ion-label color="tertiary"  matTooltip="The car selected for this bidding :&nbsp;  {{bidding.targetCar.Condition}}&nbsp;  {{bidding.targetCar.Make}} {{bidding.targetCar.Model}}  &nbsp; {{bidding.targetCar.Trim_name}}"><strong>{{bidding.targetCar.Condition}}&nbsp;  {{bidding.targetCar.Make}} {{bidding.targetCar.Model}}  {{bidding.targetCar.Trim_name}} </strong></ion-label>
         <ion-badge *ngIf="!bidding.seen" color="danger">NEW !</ion-badge> 
