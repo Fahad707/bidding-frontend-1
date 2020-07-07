@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { CarsService  } from '../sdk/custom/cars.service' 
+import { CarsService } from '../sdk/custom/cars.service';
 import { ActivatedRoute } from '@angular/router';
+
 @Component({
-  selector: 'app-display-cars',
-  templateUrl: './display-cars.page.html',
-  styleUrls: ['./display-cars.page.scss'],
+  selector: 'app-usedcars',
+  templateUrl: './usedcars.page.html',
+  styleUrls: ['./usedcars.page.scss'],
 })
-export class DisplayCarsPage implements OnInit {
+export class UsedcarsPage implements OnInit {
+
+ 
   cars: [];
   carid;
   sub;
@@ -25,15 +28,15 @@ export class DisplayCarsPage implements OnInit {
   
     async getAll() {
     
-      const observable = await this.carsService.getAllcars();
+      const observable = await this.carsService.getAllusedcars();
       observable.subscribe(
         data => {
         
           this.cars = data.data;
           console.log("cars:")
           console.log(data.data);
-          if(this.cars.length%3==0){
-          this.noofcarsrows=this.cars.length/3}
+          console.log(this.cars.length);
+          
         },
         err => {
           console.log('err', err);

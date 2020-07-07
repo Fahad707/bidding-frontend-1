@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>invoice</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+
+  <div><ion-card style="background-color:white; border-style:ridge;border-color: whitesmoke"> 
+          
+    <ion-card-content>
+
+      
+      <ion-label style="font-size: xx-large;">&nbsp;&nbsp;Customer : </ion-label><ion-label style="font-size: xx-large;color:cornflowerblue;"><strong>&nbsp;{{c}}</strong>&nbsp;&nbsp;</ion-label> 
+          <br/>
+          <ion-label style="font-size: xx-large;">&nbsp;&nbsp;Car : <b style="margin-bottom: 6px;margin-top:75%;margin-left: 5px;margin-right: 5px;color:brown;font-size: larger;">  {{make}}{{model}} {{Trim_name}}</b></ion-label> 
+          <br/>
+          <ion-item-divider>
+            <ion-label style="font-size: xx-large;">Price Set :</ion-label><p style="color:brown; margin-top: 0.5%;"><b style="font-size: xx-large;"> &nbsp;${{P}} </b></p> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        <!-- <ion-label style="border-style:solid;border-color: red;border-radius: 10px;color:tomato;font-size: x-large;font-weight: bolder;margin-left: 10%;">&nbsp;This offer was accepted!&nbsp;</ion-label> -->
+      
+      
+        </ion-item-divider>
+      
+<p style="color:blue;margin-top: 0.5%;"><b style="font-size: x-large;">&nbsp;&nbsp;&nbsp;&nbsp;{{inct}}</b></p>
+<b *ngIf="d" style="color:gold;font-size: x-large;">&nbsp;&nbsp;&nbsp;&nbsp;Delivery is Available</b>   
+
+<!-- <br/>
+
+        <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="card">
+                      <div class="content table-responsive table-full-width">
+                            <table class="table table-hover table-striped">
+                                  <thead>
+                                      <tr>
+                                          <th style="font-size: larger;" >&nbsp; &nbsp;&nbsp;&nbsp;AutoDeal offer</th>
+                                          <th style="font-size: larger;margin-left: 350px;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You save</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td  style="color:greenyellow;font-size: xx-large;" > &nbsp;&nbsp;&nbsp;${{item.Condition}}{{item.Price}}</td>
+                                          <td  style="color:greenyellow;font-size: xx-large;margin-left: 150px;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10%</td>
+                                      </tr>
+                                  </tbody>
+                            </table>
+  
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+ -->
+
+
+
+      
+      <!-- <br/> <br/> 
+      <ion-label style="font-size: larger;">&nbsp; &nbsp;&nbsp;&nbsp;AutoDeal offer  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You save</ion-label>           
+        <br/> 
+        <ion-label><a style="color:greenyellow;font-size: xx-large;">&nbsp;&nbsp;${{item.Condition}}{{item.Price}}</a><a style="font-size:xx-large;color:greenyellow;margin-left: 150px;">$10% </a></ion-label>
+     
+        <br/>  -->
+        <!-- <ion-label><strong><a color="success">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Email :</a>{{item.email}}</strong></ion-label>  
+        <br/> 
+        <ion-label><strong><a color="success">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Address :</a>{{item.dealershipstreet}},{{item.dealershipcity}},{{item.dealershipstate}}</strong></ion-label>   -->
+                    
+        <br/> 
+        <ion-label style="float:right;font-size: larger;"><strong><a color="success">Dated : </a>{{dt}}  &nbsp;&nbsp; <a color="success">Time : </a>{{time}}</strong></ion-label>   
+        <br/> 
+      </ion-card-content>
+      <!-- *ngIf="role==1" -->
+      
+     <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" expand="block" color="primary">Done&nbsp;</ion-button>
+    
+
+   </ion-card>
+   </div>
+
+
+
+
+
+
+
+
+</ion-content>

@@ -4,6 +4,7 @@ import { UserServiceService } from '../sdk/custom/user-service.service';
 import { AuthService } from '../sdk/core/auth.service';
 import { Storage } from '@ionic/storage';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { type } from 'os';
 
 
 @Component({
@@ -20,10 +21,14 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   username;
   message:"Successfully logged in"
   action:""
+  
   constructor(private _snackBar: MatSnackBar,private storage: Storage,private router: Router,private authService : AuthService ,private userServiceService : UserServiceService) { }
 
   ngOnInit() {
   }
+
+
+
 
   save() {
     this.storage.set('login', this.login);

@@ -62,6 +62,22 @@ const routes: Routes = [
     path: 'registerdealer',
     canActivate: [RedirectLoginGuard],
     loadChildren: () => import('./registerdealer/registerdealer.module').then( m => m.RegisterdealerPageModule)
+  },
+  {
+    path: 'acceptlist',
+    loadChildren: () => import('./acceptlist/acceptlist.module').then( m => m.AcceptlistPageModule)
+  },
+  {
+    path: 'invoice',
+    loadChildren: () => import('./invoice/invoice.module').then( m => m.InvoicePageModule)
+  },
+  {
+    path: 'lease-deals',
+    loadChildren: () => import('./lease-deals/lease-deals.module').then( m => m.LeaseDealsPageModule)
+  },
+  {
+    path: 'usedcars',
+    loadChildren: () => import('./usedcars/usedcars.module').then( m => m.UsedcarsPageModule)
   }
 ];
 

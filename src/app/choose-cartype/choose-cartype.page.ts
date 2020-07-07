@@ -13,6 +13,7 @@ export class ChooseCartypePage implements OnInit {
   sub;
   type;//new or used
   onedata: any;
+  model: any;
   constructor(private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService) { }
 
   async ngOnInit() {
@@ -20,11 +21,13 @@ export class ChooseCartypePage implements OnInit {
     .subscribe(params => {
       // Defaults to 0 if no query param provided.
       this.carid = params.car;
+      this.model=params.model;
       console.log("carid:");
       console.log(this.carid);
     });
+     
   
-  }
+  }  
   async postType(type,carid) {
     const observable = await this. biddingServiceService.carType(type,carid);
     console.log(this.carid);

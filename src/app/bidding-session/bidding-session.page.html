@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title style="text-align: center;">Bidding-Session</ion-title>
-    <ion-button *ngIf="role==0" expand="block" style="font-size: larger;border-style: solid; border-color:darkorange; border-radius: 5px; margin-left: 5%; margin-right: 5%;height:30px;" slot="end" (click)="openDialog()" >Give an offer</ion-button> 
+    <ion-button *ngIf="role==0 && offeraccept!=1" expand="block" style="font-size: larger;border-style: solid; border-color:darkorange; border-radius: 5px; margin-left: 5%; margin-right: 5%;height:30px;" slot="end" (click)="openDialog()" >Give an offer</ion-button> 
     <!-- <ion-title>BiddingSession {{dataz.targetCar.Make}}</ion-title> -->
   </ion-toolbar>    
 </ion-header>
@@ -9,11 +9,7 @@
 
 <ion-content> 
 
-
-  
-
-
-  <ion-list style="background-color:white">
+<ion-list style="background-color:white">
   
     <ion-row>
       <div fxShow="true"  fxHide.gt-sm style="background-color: lightgray;border-style: solid;border-color:orange;border-width: 5px;border-radius: 13px;">
@@ -26,26 +22,26 @@
     </ion-row>
   
     <ion-row class="horizontal-cards">
-      <ion-col *ngFor="let item of onedata?.offers" size="12">
+      <ion-col *ngFor="let item of onedata?.offers" size="12" size-lg="12">
         <div><ion-card style="background-color:white; border-style:ridge;border-color: whitesmoke"> 
           
           <ion-card-content>
 
             
-              <ion-label style="font-size: xx-large;color: darkgrey;"><strong>&nbsp;&nbsp;&nbsp;{{item.dealershipName}}</strong></ion-label> 
+              <ion-label style="font-size: xx-large;color: darkgrey;"><strong>&nbsp;&nbsp;&nbsp;{{item.dealershipName}}</strong>&nbsp;&nbsp;<mat-icon *ngIf="onedata.ended && item._id==acceptid" style="color:yellowgreen;size: 100%;">done_outline</mat-icon></ion-label> 
                 <br/>
                 <ion-label style="margin-left:3%;border-color: grey;border-style: solid;border-radius: 22px;" *ngIf="item.delivery"><b style="margin-bottom: 6px;margin-top:75%;margin-left: 5px;margin-right: 5px;color:gold;font-size: larger;">Delivery is Available</b></ion-label> 
                 <br/>
                 <ion-item-divider>
                 <ion-icon  name="location-outline"></ion-icon><p style="color:blue; margin-top: 0.5%;"><b style="font-size: larger;">14 miles</b></p> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<ion-icon style="color:darkorange"  name="star"></ion-icon><ion-icon style="color:darkorange"  name="star"></ion-icon><ion-icon style="color:darkorange"  name="star"></ion-icon><ion-icon style="color:darkorange"  name="star"></ion-icon>&nbsp;<p style="color:blue;margin-top: 0.5%;"><b style="font-size: larger;">21 reviews</b></p>
             
-              
+              <ion-label style="border-style:solid;border-color: red;border-radius: 10px;color:tomato;font-size: x-large;font-weight: bolder;margin-left: 10%;" *ngIf="item._id==acceptid">&nbsp;This offer was accepted!&nbsp;</ion-label>
             
             
               </ion-item-divider>
             
 
-<br/>
+         <br/>
 
               <div class="container-fluid">
                 <div class="row">
@@ -92,15 +88,15 @@
               <br/> 
             </ion-card-content>
             <!-- *ngIf="role==1" -->
-            <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" *ngIf="role==1" expand="block"  color="success">
+            <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" *ngIf="role==1 && offeraccept!=1"  (click)="accept(item)"  expand="block"  color="success">
               Accept Offer &nbsp;
             <ion-icon name="open-outline"></ion-icon>
             </ion-button>
            <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" expand="block" color="primary">View Details &nbsp;</ion-button>
           
       
-        </ion-card>
-       </div>
+         </ion-card>
+         </div>
       </ion-col>
       </ion-row>
     <!-- <ion-item *ngFor="let item of onedata?.offers">
@@ -117,9 +113,9 @@
     </ion-item>
     </ion-item>   -->
     <!-- {{onedata?.offers}} -->
-  </ion-list>
+  <!-- </ion-list> -->
  <!-- ************************************************************ -->
-  <ion-list>
+  <!-- <ion-list>
   <ion-item *ngFor="let item of messageArray">
     <ion-item style=" flex-flow: column;">
       <ion-label><strong><a color="danger" >Offer : </a>{{item.message}}  &nbsp;&nbsp; {{item.Price}}</strong></ion-label>  
@@ -131,30 +127,147 @@
     </ion-item>
   <ion-item style=" flex-flow: column;">
       <ion-label><strong><ion-label color="warning"><a color="primary" > Dealership :</a>{{item.dinfo.uname}}</ion-label>  &nbsp;&nbsp;<ion-label color="warning"><a color="primary">Email :</a> {{item.dinfo.email}} </ion-label><ion-label color="warning">Address : {{item.dinfo.street}},{{item.dinfo.city}},{{item.dinfo.state}}</ion-label></strong></ion-label>  
-    </ion-item> 
-    <!-- <ion-label><strong><a color="danger">Offer by {{uname}} : </a>{{item.message}}</strong></ion-label>  -->
-    <ion-button *ngIf="role==1" color="tertiary">
+    </ion-item>  -->
+    <!--* <ion-label><strong><a color="danger">Offer by {{uname}} : </a>{{item.message}}</strong></ion-label>  -->
+    <!-- <ion-button *ngIf="role==1" color="tertiary">
       Accept &nbsp;
     <ion-icon name="open-outline"></ion-icon>
     </ion-button>
     
   </ion-item>
- </ion-list>
+ </ion-list> -->
 <!-- *************************************************************** --> 
+
+
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+
+
+
+
+<ion-row class="horizontal-cards">
+  <ion-col *ngFor="let item of messageArray" size="12" size-lg="12">
+    <div>
+  <ion-card style="background-color:white; border-style:ridge;border-color: whitesmoke"> 
+      
+      <ion-card-content>
+
+        
+          <ion-label style="font-size: xx-large;color: darkgrey;"><strong>&nbsp;&nbsp;&nbsp;{{item.dinfo.uname}}</strong>&nbsp;&nbsp;</ion-label> 
+            <br/>
+            <ion-label style="margin-left:3%;border-color: grey;border-style: solid;border-radius: 22px;" *ngIf="item.delivery"><b style="margin-bottom: 6px;margin-top:75%;margin-left: 5px;margin-right: 5px;color:gold;font-size: larger;">Delivery is Available</b></ion-label> 
+            <br/>
+            <ion-item-divider>
+            <ion-icon  name="location-outline"></ion-icon><p style="color:blue; margin-top: 0.5%;"><b style="font-size: larger;">14 miles</b></p> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<ion-icon style="color:darkorange"  name="star"></ion-icon><ion-icon style="color:darkorange"  name="star"></ion-icon><ion-icon style="color:darkorange"  name="star"></ion-icon><ion-icon style="color:darkorange"  name="star"></ion-icon>&nbsp;<p style="color:blue;margin-top: 0.5%;"><b style="font-size: larger;">21 reviews</b></p>
+        
+          <ion-label style="border-style:solid;border-color: red;border-radius: 10px;color:tomato;font-size: x-large;font-weight: bolder;margin-left: 10%;" *ngIf="item._id==acceptfrmmsgarr">&nbsp;offer accepted!&nbsp;</ion-label>
+        
+        
+          </ion-item-divider>
+        
+
+       <br/>
+
+          <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="content table-responsive table-full-width">
+                              <table class="table table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th style="font-size: larger;" >&nbsp; &nbsp;&nbsp;&nbsp;AutoDeal offer</th>
+                                            <th style="font-size: larger;margin-left: 350px;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You save</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td  style="color:greenyellow;font-size: xx-large;" > &nbsp;&nbsp;&nbsp;${{item.message}}{{item.Price}}</td>
+                                            <td  style="color:greenyellow;font-size: xx-large;margin-left: 150px;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10%</td>
+                                        </tr>
+                                    </tbody>
+                              </table>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+
+
+
+        
+        <!-- <br/> <br/> 
+        <ion-label style="font-size: larger;">&nbsp; &nbsp;&nbsp;&nbsp;AutoDeal offer  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You save</ion-label>           
+          <br/> 
+          <ion-label><a style="color:greenyellow;font-size: xx-large;">&nbsp;&nbsp;${{item.Condition}}{{item.Price}}</a><a style="font-size:xx-large;color:greenyellow;margin-left: 150px;">$10% </a></ion-label>
+       
+          <br/>  -->
+          <!-- <ion-label><strong><a color="success">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Email :</a>{{item.email}}</strong></ion-label>  
+          <br/> 
+          <ion-label><strong><a color="success">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Address :</a>{{item.dealershipstreet}},{{item.dealershipcity}},{{item.dealershipstate}}</strong></ion-label>   -->
+                      
+          <br/> 
+          <ion-label style="float:right;"><strong><a color="success">Dated : </a>{{date}}  &nbsp;&nbsp; <a color="success">Time : </a>{{time}}</strong></ion-label>   
+          <br/> 
+        </ion-card-content>
+        <!-- *ngIf="role==1" -->
+        <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" *ngIf="role==1 && offeraccept!=1"  (click)="accept(item)"  expand="block"  color="success">
+          Accept Offer &nbsp;
+        <ion-icon name="open-outline"></ion-icon>
+        </ion-button>
+       <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" expand="block" color="primary">View Details &nbsp;</ion-button>
+      
+  
+    </ion-card>
+         </div>
+  </ion-col>
+</ion-row>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+
+
+
+
+
 
 <div *ngIf="role==0">
  <!-- <ion-item>
   <ion-label position="stacked">Type a offer</ion-label>
   <ion-input required type="text"  [(ngModel)]="messageText" ></ion-input>
  </ion-item> -->
- <ion-button expand="block" style="font-size: larger;border-style: solid; border-color:darkorange; border-radius: 5px; margin-left: 5%; margin-right: 5%;height:50px;" (click)="openDialog()" >Give an offer</ion-button> 
+ <ion-button *ngIf="offeraccept!=1" expand="block" style="font-size: larger;border-style: solid; border-color:darkorange; border-radius: 5px; margin-left: 5%; margin-right: 5%;height:50px;" (click)="openDialog()" >Give an offer</ion-button> 
+ 
+ 
  <!-- <ion-button (click)="sendMessage()">Give an offer</ion-button> -->
  <!-- <ol><li *ngIf="price">
   You chose: <i>{{price}}</i>
 </li></ol> -->
 
 </div>
-</ion-content>  
+<ion-label *ngIf="offeraccept=='1'" style="color:red;margin-left:27%;text-align: center;font-weight: bolder;font-size: xx-large;" >&nbsp;&nbsp;&nbsp;{{acceptn}}'s Offer of ${{acceptp}} Accepted by {{onedata?.customername}}</ion-label>
+<!-- </ion-content>   -->
 
 
 

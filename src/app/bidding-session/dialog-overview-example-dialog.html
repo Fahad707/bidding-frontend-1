@@ -1,7 +1,7 @@
 <div mat-dialog-content>
-  <p>&nbsp;&nbsp;What's your offer?</p>
+  <p>&nbsp;<b>What's your offer?</b></p>
   <div>
-    <ion-label>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </ion-label>
+    <ion-label>Price ($) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </ion-label>
     <input matInput [(ngModel)]="data.price" style="display: block;
     width: 100%;
     height: calc(2.75rem + 2px);
@@ -13,8 +13,8 @@
     border: 1px solid #cad1d7;
     border-radius: .25rem;
     box-shadow: none;transition: all .2s cubic-bezier(.68,-.55,.265,1.55);">
-    <br><br>
-    <ion-label>Any Incentive &nbsp; </ion-label>
+  <br/>
+  <ion-label>Any Incentive &nbsp; </ion-label>
     <input matInput [(ngModel)]="data.incentive" style="display: block;
     width: 100%;
     height: calc(2.75rem + 2px);
@@ -26,10 +26,11 @@
     border: 1px solid #cad1d7;
     border-radius: .25rem;
     box-shadow: none;transition: all .2s cubic-bezier(.68,-.55,.265,1.55);">
+    <br>
     <mat-checkbox class="example-margin" [(ngModel)]="data.checked">Delivery Available</mat-checkbox>
   </div>
 </div>
 <div mat-dialog-actions>
-  <ion-button mat-button (click)="onNoClick()">cancel &nbsp;<ion-icon style="color: crimson;margin-top: 2px;" name="close-outline"></ion-icon></ion-button>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-button style="background-color:green; border-style: double;border-radius:8px;float:right;"  mat-button (click)="onOkClick()" [mat-dialog-close]="data" cdkFocusInitial>Done</ion-button>
+  <ion-button style="background-color:red; border-style: double;border-radius:8px;" mat-button (click)="onNoClick()">cancel</ion-button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-button style="background-color:green; border-style: double;border-radius:8px;float:right;"  mat-button (click)="onOkClick()" [mat-dialog-close]="data" cdkFocusInitial>Done</ion-button>
 </div>

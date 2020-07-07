@@ -24,5 +24,9 @@ export class DealerService {
     console.log("gone in service")
     return this.http.post(url, credentials);
   }
+  public dealerLogout(credentials: object): Observable<any> {
+    const url =Autodeal.getPath() + '/dealerships/logout';
+    return this.http.post(url,credentials);
+  }
   
 }

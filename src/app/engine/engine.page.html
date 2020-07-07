@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
+    <ion-title style="text-align: center;">
       <!-- suppose engine page is the one which has the start bidding button,on presing which the dealer will join the bidding session..............
       </ion-title> -->
 Engines    </ion-title>
@@ -16,24 +16,32 @@ Engines    </ion-title>
   <ion-row class="horizontal-cards" >
     <!-- <ion-col *ngFor="let item of onedata" size="12"> -->
     
-    <ion-col size="2" >
+      <div style="width:98%;margin-left: 1%;margin-right: 1%;background-color:  white; border-style: solid;border-color:seagreen;border-width: 5px;border-radius: 13px;">
+        <span style="float:left;width:45%; height:5px;"> <ion-label color="warning" style="font-size:x-large; float: left; margin-top:2%;margin-left:2%;color:black"><strong><a></a> {{onedata}} </strong></ion-label> 
+        <br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <ion-button expand="block" style="float:left;margin-left:4px;border-style: solid;border-radius:8px ;" (click)="createNewSession()" >Start Bidding</ion-button></span>
+        <img style="float:right; width:23%; height: 100%; border-style: solid; border-radius: 13px;"  src="./assets/icon/images.jpg"/>
+      </div>
+
+    <!-- <ion-col size="12" >
       <div><ion-card style="border-radius: 20px;border-style:solid; background-color:lightblue; border-color:crimson;  border-width: 1px"> 
-        <img src="./assets/icon/images.jpg">
+       
         <ion-card-header>
-          <ion-label color="warning" style="font-size:x-large; color:crimson"><strong><a></a> {{onedata}} </strong></ion-label>  
+          <img  src="./assets/icon/images.jpg">
+          
         </ion-card-header>
-        <ion-card-content>
+        <ion-card-content> -->
           <!-- <ion-button style="font-size:larger;" [routerLink]="['/engine']" [queryParams]="{ trim:item._id}" color="danger">select</ion-button> -->
           <!-- <ion-button expand="block" (click)="createNewSession()" href="/customer-bidding-session">Start Bidding</ion-button> -->
-          <ion-button expand="block" (click)="createNewSession()" >Start Bidding</ion-button>
+          <!-- <ion-button expand="block" (click)="createNewSession()" >Start Bidding</ion-button>
         
         </ion-card-content>
       </ion-card>
-    </div>
+    </div> -->
     <!-- <p style="width:100%;" ion-item *ngFor="let bidding of the_data">car: {{bidding.car_id}} & its trim {{bidding.trim_id}}</p> -->
-    </ion-col>
+    <!-- </ion-col> -->
     </ion-row>
   </div> 
-
   
 </ion-content> 

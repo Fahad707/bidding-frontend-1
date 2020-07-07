@@ -27,16 +27,10 @@
         <ion-card-header>
           <ion-card-title>{{item.MAKE}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-card-title>
           <ion-card-subtitle style="font-size: x-large;color: black;">{{item.Model}}</ion-card-subtitle>
-          <ion-item-divider></ion-item-divider>
-          <br/>RRP<br/>
-          <ion-card-title><Strong style="font-size: x-large;">${{item.Trims[0].Price}} </Strong> </ion-card-title>
+          <ion-item-divider></ion-item-divider><br/>
+          <ion-card-title>AutoDeal price from<Strong style="font-size: x-large;float: right;;">${{item.Trims[0].monthly_due}} / month </Strong> </ion-card-title>
         </ion-card-header>
-       <ion-button expand="block" *ngIf="lease!=1" style="height:45px;margin-left: 2%;margin-right: 2%;margin-bottom: 2%;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="success"> Get offers &nbsp;</ion-button>  
-       <!-- <ion-button expand="block" *ngIf="lease==1" style="height:45px;margin-left: 2%;margin-right: 2%;margin-bottom: 2%;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="success"> Get lease deals &nbsp;</ion-button>   -->
-    
-       <!-- localStorage.setItem('flagforRec', 1);
-       localStorage.setItem('Selected_carModel', car.Model); -->
-  
+       <ion-button expand="block"  style="height:45px;margin-left: 2%;margin-right: 2%;margin-bottom: 2%;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="success"> Get lease deals &nbsp;</ion-button>  
       </ion-card>
     </div>
     </ion-col>

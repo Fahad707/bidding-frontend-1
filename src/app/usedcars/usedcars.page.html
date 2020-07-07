@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>displayCars</ion-title>
+    <ion-title>Used Cars</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -31,7 +31,7 @@
           <br/>RRP<br/>
           <ion-card-title><Strong style="font-size: x-large;">${{item.Trims[0].Price}} </Strong> </ion-card-title>
         </ion-card-header>
-       <ion-button expand="block" *ngIf="lease!=1" style="height:45px;margin-left: 2%;margin-right: 2%;margin-bottom: 2%;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="success"> Get offers &nbsp;</ion-button>  
+       <ion-button expand="block" *ngIf="lease!=1" style="height:45px;margin-left: 2%;margin-right: 2%;margin-bottom: 2%;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="success"> See Available &nbsp;</ion-button>  
        <!-- <ion-button expand="block" *ngIf="lease==1" style="height:45px;margin-left: 2%;margin-right: 2%;margin-bottom: 2%;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="success"> Get lease deals &nbsp;</ion-button>   -->
     
        <!-- localStorage.setItem('flagforRec', 1);

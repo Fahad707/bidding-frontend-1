@@ -19,6 +19,9 @@ export interface DialogData {
 export class BiddingSessionPage implements OnInit{
   price: string;
   year;
+
+  offeraccept:String;
+
 sessionid:String;
 sub;
 onedata;
@@ -45,6 +48,12 @@ headerRow: [ 'AutoDeal offer', 'You save']
   date;
   time;
   delivery: any;
+  acceptedinfo: any;
+  acceptp: String;
+  acceptn: String;
+  acceptid: any;
+  acceptfrmmsgarr=0;
+  flag: number;
 
 
 constructor(public dialog: MatDialog,private storage: Storage,private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) 
@@ -69,8 +78,19 @@ constructor(public dialog: MatDialog,private storage: Storage,private activateRo
     }
     this.date = mmm + "/" + ddd + "/" + yyyy;
   }); 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  
+this.liveBiddingService.AcceptMessage().subscribe(datax=>{/*this.msg=datax;this.ll=datax.message;
+  */console.log("OOOOOOOOOOOOOOOO ");
+  // console.log(datax.acceptInfo)
+  this.acceptp = datax.price;//datax.acceptInfo.dealershipName
+  this.acceptn= datax.dealername;
+  this.offeraccept='1';
+  console.log("~~~~~~~~~~~~~~~~@@~~~~~~~~~~~~~~~")
+ }); 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////  
   this.liveBiddingService.newUserJoined()//through socket
   .subscribe(data=> {this.dataz=data;this.offer = this.dataz.offers;console.log("offer:");console.log(this.dataz)});
   
@@ -107,6 +127,8 @@ openDialog(){
     width: '350px',
     data: {price: this.price, incentive: this.incentive}
   });
+
+
 
   dialogRef.afterClosed().subscribe(async result => {
     console.log('The dialog was closed');
@@ -155,6 +177,15 @@ openDialog(){
     observable.subscribe(
       data => {
         this.onedata = data.data;
+        this.flag=1;
+        if( this.onedata.ended){
+          this.offeraccept='1';
+          // console.log("this.onedata.Accepted_offer[0]")
+          // console.log(this.onedata.Accepted_offer[0].offerdetails.Price);
+  this.acceptp = this.onedata.Accepted_offer[0].offerdetails.Price;//datax.acceptInfo.dealershipName
+  this.acceptn= this.onedata.Accepted_offer[0].offerdetails.dealershipName;
+  this.acceptid= this.onedata.Accepted_offer[0].offer_id
+        }
         console.log('onedata', data.data);
         console.log("OOOO88888OOOOOOOOO8888OOOOOOOO8888OOOOOOOOOOO8888OOOOOOOOOOOOOO8888OOOOOO");
       },
@@ -163,6 +194,18 @@ openDialog(){
       }
     );
   }
+
+accept(item){
+this.acceptfrmmsgarr=item._id;
+console.log(this.acceptfrmmsgarr)
+console.log("^%^%^%^%^%^%^%^%^%")
+console.log(item)
+console.log("^%^%^%^%^%^%^%^%^%")
+console.log(this.offeraccept)
+this.liveBiddingService.OfferAccepted({room:this.sessionid,offerinfo:item,custid:this.onedata.customer,car:this.onedata.targetCar,cusotname:this.onedata.customername});
+
+     
+}
 
   join(sessionid){
   

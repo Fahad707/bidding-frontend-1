@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { CarsService  } from '../sdk/custom/cars.service' 
 import { ActivatedRoute } from '@angular/router';
+import { CarsService } from '../sdk/custom/cars.service';
+
 @Component({
-  selector: 'app-display-cars',
-  templateUrl: './display-cars.page.html',
-  styleUrls: ['./display-cars.page.scss'],
+  selector: 'app-lease-deals',
+  templateUrl: './lease-deals.page.html',
+  styleUrls: ['./lease-deals.page.scss'],
 })
-export class DisplayCarsPage implements OnInit {
+export class LeaseDealsPage implements OnInit {
+
   cars: [];
   carid;
   sub;
@@ -40,5 +42,6 @@ export class DisplayCarsPage implements OnInit {
         }
       );
     }
+
 
 }

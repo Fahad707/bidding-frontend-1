@@ -14,4 +14,8 @@ export class CarsService {
     const url =Autodeal.getPath() + '/cars';
     return this.http.get(url);
   }
+  public async getAllusedcars(): Promise<any> {
+    const url =Autodeal.getPath() + '/cars/used';
+    return this.http.get(url);
+  }
 }

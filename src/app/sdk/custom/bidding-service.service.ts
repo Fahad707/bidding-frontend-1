@@ -15,6 +15,14 @@ export class BiddingServiceService {
     const url =Autodeal.getPath() + '/bidding/DealerView';
     return this.http.get(url);
   }
+
+
+  public async getAllAccepted(): Promise<any> {
+    const url =Autodeal.getPath() + '/bidding/DealerView/Accepted';
+    return this.http.get(url);
+  }
+  
+
   public async getAllforCustomer(): Promise<any> {
     const url =Autodeal.getPath() + '/bidding/view';
     return this.http.get(url);

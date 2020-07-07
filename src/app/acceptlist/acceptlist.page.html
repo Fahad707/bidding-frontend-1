@@ -1,0 +1,97 @@
+<ion-header>
+  
+  <ion-toolbar color="primary">
+    <h1 class="example" slot="start">AutoDeal</h1>
+    <h1><ion-title  class="ion-text-center"><strong>Your Accepted Offers</strong></ion-title></h1>     
+    </ion-toolbar>
+  </ion-header>
+  <!-- Now, unless you login properly, the GET request won’t work. -->
+  <ion-content color="">
+     
+    <ion-label style="font-size: xx-large;margin-left: 25px;" >&nbsp; &nbsp;&nbsp;&nbsp;Car</ion-label> 
+    <ion-label style="font-size: xx-large;margin-left: 220px;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time & Date</ion-label>
+    <ion-label style="font-size: xx-large;margin-left: 98px;" >&nbsp;Customer</ion-label> 
+    <div *ngIf="!loading">
+      <ion-list>
+     
+        <ion-item *ngFor="let bidding of biddings.slice().reverse()">
+          <!-- *.slice().reverse() -->
+          <ion-label><strong>{{bidding.targetCar.Make}} {{bidding.targetCar.Model}}  {{bidding.targetCar.Trim_name}}</strong></ion-label>
+          <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{bidding.time}} on {{bidding.date}}</ion-label>
+       <br>
+          <ion-label color="tertiary"  ><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{bidding.cust}}&nbsp;   </strong></ion-label>
+          <ion-badge *ngIf="!bidding.seen" color="danger">NEW! offer accepted</ion-badge> 
+          &nbsp;&nbsp;&nbsp;                              
+          <!--* <ion-button  (click)="join(bidding._id)" href="/bidding-session" color="tertiary"> -->
+          <ion-button  [routerLink]="['/bidding-session']" [queryParams]="{ session_id:bidding._id,user:false }"    color="tertiary">
+            Bidding session &nbsp;
+          <ion-icon name="open-outline"></ion-icon>
+          </ion-button>
+          <ion-button  (click)="invoice(bidding)"  color="tertiary">
+            View details &nbsp;
+          </ion-button>
+        </ion-item>
+      </ion-list>
+      <!--* {{dataz|json}} -->
+    </div>
+  
+
+
+
+
+    <div *ngIf="loading">
+      <ion-list>
+      </ion-list>
+    </div>
+  </ion-content>
+
+
+
+<!-- 
+
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                              <thead>
+                                  <tr>
+                                      <th style="font-size: xx-large;" >&nbsp; &nbsp;&nbsp;&nbsp;Car</th>
+                                      <th style="font-size: xx-large;margin-left: 650px;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time & Date</th>
+                                      <th style="font-size: xx-large;margin-left: 658px;" >&nbsp; &nbsp;&nbsp;Customer</th>
+                                 
+                                    </tr>
+                              </thead>
+                              <tbody style="width:100%;">
+                                  <tr style="border-style: solid;border-color: teal; width:100%;" *ngFor="let bidding of biddings">
+                                    
+                                      <td  style="color:orange;font-size: xx-large;margin-left: 150px;" > &nbsp;{{bidding.targetCar.Make}} {{bidding.targetCar.Model}}  {{bidding.targetCar.Trim_name}}</td>
+                                      <td  style="color:orange;font-size: xx-large;margin-left: 450px;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{bidding.time}} on {{bidding.date}}</td>
+                                      <td  style="color:orange;font-size: xx-large;margin-left: 450px;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{bidding.cust}}</td>
+                                      &nbsp;
+                                      <ion-badge style="margin-top: 20%;" *ngIf="!bidding.seen" color="danger">NEW !</ion-badge> 
+                                      &nbsp;                           
+                                       <ion-button  (click)="join(bidding._id)" href="/bidding-session" color="tertiary"> -->
+                                      <!-- <td><ion-button [routerLink]="['/bidding-session']" [queryParams]="{ session_id:bidding._id,user:false }"    color="tertiary">
+                                        Check &nbsp;
+                                      <ion-icon name="open-outline"></ion-icon>
+                                      </ion-button>
+                                    </td>
+                                     
+                                        
+                                    </tr>
+
+                              </tbody>
+                        </table>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div> -->
+ 
+
+
+
+

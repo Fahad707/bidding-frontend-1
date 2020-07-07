@@ -50,6 +50,43 @@ sendMessage(data)
     // console.log(data.message);
     this.socket.emit('message',data);
 }
+
+OfferAccepted(data)
+{
+    // console.log("sendMessage(data):");
+    // console.log(data.message);
+    console.log('in OfferAccepted');
+    this.socket.emit('offerAccepted',data);
+    
+}
+
+// AcceptMessage(){
+//     let observable = new Observable<{acceptInfo:Object}>(observer=>{
+//         this.socket.on('AcceptInfo', (data)=>{
+//             observer.next(data);
+//             console.log("!!!!!!!!!!~~~~~~~~~~~~~~`````````newMessageReceived from AcceptMessag~~~~~~~~~~`````````");
+//             console.log(data);
+//             console.log(data)
+//         });
+//         return () => {this.socket.disconnect();}
+//     });
+//     return observable;
+// }
+
+AcceptMessage(){
+    let observable = new Observable<{dealername:any,price:any}>(observer=>{
+        this.socket.on('AcceptInfo', (data)=>{
+            observer.next(data);
+            console.log("!!!!!!!!!!~~~~~~~~~~~~~~`````````newMessageReceived from AcceptMessag~~~~~~~~~~`````````");
+            console.log(data);
+            console.log(data)
+        });
+        return () => {this.socket.disconnect();}
+    });
+    return observable;
+}
+
+
 newMessageReceived(){
     let observable = new Observable<{message:any,dinfo:Object,incentive:any,delivery:Boolean}>(observer=>{
         this.socket.on('new message', (data)=>{

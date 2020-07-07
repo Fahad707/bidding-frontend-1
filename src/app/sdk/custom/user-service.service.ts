@@ -22,5 +22,9 @@ export class UserServiceService {
     console.log("route hit")
     return this.http.post(url, credentials);
   }
-
+  public userLogout(credentials: object): Observable<any> {
+    const url =Autodeal.getPath() + '/users/logout';
+    console.log(url);
+    return this.http.post(url,credentials);
+  }
 }

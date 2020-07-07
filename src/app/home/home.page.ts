@@ -3,6 +3,8 @@ import { AuthService } from '../sdk/core/auth.service';
 import { Storage } from '@ionic/storage';
 import { CarsService } from '../sdk/custom/cars.service';
 import { BiddingServiceService } from '../sdk/custom/bidding-service.service';
+import { UserServiceService } from '../sdk/custom/user-service.service';
+import { DealerService } from '../sdk/custom/dealer.service';
 
 
 @Component({
@@ -29,9 +31,10 @@ cars: [];
     }; 
   role: any;
   info: any;
+  r: any;
 
 
-  constructor(private storage: Storage,private authService:AuthService,private carsService:CarsService,private biddingServiceService:BiddingServiceService) {}
+  constructor(private storage: Storage,private authService:AuthService,private carsService:CarsService,private biddingServiceService:BiddingServiceService,private userServiceService : UserServiceService,private dealerService : DealerService) {}
 async ngOnInit(){
  this.exec();
  this.name = await this.storage.get('username');
@@ -52,9 +55,33 @@ ne(){
 this.toshow=1
 }
 
-logoutt(){
+async logoutt(){
    this.authService.logout();
- }
+}//  this.r = await this.storage.get('role');
+  
+  //   this.userServiceService.userLogout(this.r).subscribe(
+  //     data => {
+  //       console.log('got response from server', data);
+  //     },
+  //     error => {
+  //       console.log('error', error);
+  //     }
+  //   );
+   
+  //  else{
+
+  //   this.dealerService.dealerLogout(this.r).subscribe(
+  //     data => {
+  //       console.log('got response from server', data);
+  //     },
+  //     error => {
+  //       console.log('error', error);
+  //     }
+  //   );
+
+  //  }
+ //}
+
  async exec(){
  this.login = await this.storage.get('login');
  console.log(this.login);
@@ -114,3 +141,14 @@ async getAllnotifications() {
   );
 }
 }
+
+
+// let your_json_object = { "name":"John", "age":30, "car":null };
+
+//   // set a key/value
+//   storage.set('my-json', your_json_object);
+
+//   // to get a key/value pair
+//   storage.get('my-json').then((val) => {
+//     console.log('Your json is', val);
+//   });
