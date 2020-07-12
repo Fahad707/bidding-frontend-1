@@ -1,3 +1,14 @@
+
+
+
+
+
+
+
+
+
+
+
 <!-- /////////////////////////////////////////////////// -->
 <!-- ******************************************************** -->
 <!-- ----------------------------------------------------------------------- -->
@@ -155,27 +166,24 @@ __________________________________________ -->
         <ion-row class="horizontal-cards" style="width:100%">
           <ion-col *ngFor="let item of cars" size-lg="4" size-sm="6" size-md="6" size-xs="12">
             <div><ion-card>
+              <ion-card-title *ngIf="item.Dealtype=='cash'">Cash Deal</ion-card-title>
+              <ion-card-title *ngIf="item.Dealtype=='lease'">Lease Deal</ion-card-title>
               <img src="./assets/icon/3549909.jpg">
               <ion-card-header>
-                <ion-card-title>{{item.MAKE}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-card-title>
-                <ion-card-subtitle style="font-size: x-large;color: black;">{{item.Model}}</ion-card-subtitle>
-                <ion-item-divider></ion-item-divider>
-                <br/>RRP<br/>
-                <ion-card-title><Strong style="font-size: x-large;">${{item.Trims[0].Price}} </Strong> </ion-card-title>
+                <ion-card-title>{{item.carmake}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-card-title>
+                <ion-card-subtitle style="font-size: x-large;color: black;">{{item.carmodel}}</ion-card-subtitle>                
+                <ion-card-title><Strong style="font-size: x-large;float: right;;">${{item.Trim_name}}</Strong> </ion-card-title>
+                <ion-item-divider></ion-item-divider><br/>
+                <ion-card-title><Strong style="font-size: x-large;float: right;;">${{item.Incentive}}</Strong> </ion-card-title>
+                <ion-card-title><Strong style="font-size: x-large;float: right;;">${{item.Description}}</Strong> </ion-card-title>
               </ion-card-header>
-             <ion-button expand="block" *ngIf="lease!=1" style="height:45px;margin-left: 2%;margin-right: 2%;margin-bottom: 2%;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="success"> See Available &nbsp;</ion-button>  
-             <!-- <ion-button expand="block" *ngIf="lease==1" style="height:45px;margin-left: 2%;margin-right: 2%;margin-bottom: 2%;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="success"> Get lease deals &nbsp;</ion-button>   -->
-          
-             <!-- localStorage.setItem('flagforRec', 1);
-             localStorage.setItem('Selected_carModel', car.Model); -->
-        
+             <ion-button expand="block"  style="height:45px;margin-left: 2%;margin-right: 2%;margin-bottom: 2%;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item._id}" color="success"> Get lease deals &nbsp;</ion-button>  
             </ion-card>
           </div>
           </ion-col>
           </ion-row>
         </div> 
-       <strong *ngIf="flag=='1'" style="font-size: x-large;"> &nbsp;&nbsp;&nbsp;&nbsp;     You May Also Like :  </strong>
-        <hr><hr>
+   
 
 
  <!-- 

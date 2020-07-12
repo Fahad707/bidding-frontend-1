@@ -75,7 +75,7 @@
   
   .centered {
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold; font-size: 25px;
@@ -83,6 +83,18 @@
     text-decoration: none;
   
   }
+
+  .centeredsm {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold; font-size: 10px;
+    color:white;
+    text-decoration: none;
+  
+  }
+ 
  
   
   .tool{

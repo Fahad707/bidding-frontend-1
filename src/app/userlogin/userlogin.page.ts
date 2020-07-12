@@ -4,7 +4,7 @@ import { UserServiceService } from '../sdk/custom/user-service.service';
 import { AuthService } from '../sdk/core/auth.service';
 import { Storage } from '@ionic/storage';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { type } from 'os';
+
 
 
 @Component({
@@ -48,6 +48,7 @@ import { type } from 'os';
         this.login = 1;
         this.er=0;
         this.username = data.data.username;
+        this.storage.remove('username');
         this.storage.set('username', this.username);
         this.storage.set('login', this.login);
         this.storage.set('role',1);

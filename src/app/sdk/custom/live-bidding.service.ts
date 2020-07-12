@@ -34,10 +34,11 @@ export class LiveBiddingService {
   }
   newsessio()
   {
-      let observable = new Observable<{biddingInfo:Object}>(observer=>{
+      let observable = new Observable<{biddingInfo:Object,id:any}>(observer=>{
           this.socket.on('newsession', (data)=>{
               observer.next(data);
               console.log("@@@@@@#####################$$$$$$$$$$%%%%%%%%%%%%%%::::"+data)
+              console.log(data.id)
           });
           return () => {this.socket.disconnect();}
       });
@@ -71,7 +72,7 @@ OfferAccepted(data)
 //         return () => {this.socket.disconnect();}
 //     });
 //     return observable;
-// }
+// }AcceptInfo
 
 AcceptMessage(){
     let observable = new Observable<{dealername:any,price:any}>(observer=>{
@@ -86,9 +87,9 @@ AcceptMessage(){
     return observable;
 }
 
-
 newMessageReceived(){
-    let observable = new Observable<{message:any,dinfo:Object,incentive:any,delivery:Boolean}>(observer=>{
+    let observable = new Observable<{message:any,dinfo:Object,
+        incentive:any,delivery:Boolean,monthly_due:any,Initial_Payment:any,Contract_length:any,  Max_miles_year:any}>(observer=>{
         this.socket.on('new message', (data)=>{
             observer.next(data);
             console.log("newMessageReceived");

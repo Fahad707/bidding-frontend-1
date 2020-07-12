@@ -9,8 +9,8 @@
   <ion-content color="">
      
     <ion-label style="font-size: xx-large;margin-left: 25px;" >&nbsp; &nbsp;&nbsp;&nbsp;Car</ion-label> 
-    <ion-label style="font-size: xx-large;margin-left: 220px;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time & Date</ion-label>
-    <ion-label style="font-size: xx-large;margin-left: 98px;" >&nbsp;Customer</ion-label> 
+    <ion-label style="font-size: xx-large;margin-left: 195px;" >Time & Date</ion-label>
+    <ion-label style="font-size: xx-large;margin-left: 84px;" >Customer</ion-label> 
     <div *ngIf="!loading">
       <ion-list>
      
@@ -23,7 +23,7 @@
           <ion-badge *ngIf="!bidding.seen" color="danger">NEW! offer accepted</ion-badge> 
           &nbsp;&nbsp;&nbsp;                              
           <!--* <ion-button  (click)="join(bidding._id)" href="/bidding-session" color="tertiary"> -->
-          <ion-button  [routerLink]="['/bidding-session']" [queryParams]="{ session_id:bidding._id,user:false }"    color="tertiary">
+          <ion-button  [routerLink]="['/bidding-session']" [queryParams]="{session_id:bidding._id}"    color="tertiary">
             Bidding session &nbsp;
           <ion-icon name="open-outline"></ion-icon>
           </ion-button>

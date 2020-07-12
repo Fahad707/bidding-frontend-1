@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LiveBiddingService } from '../sdk/custom/live-bidding.service';
 import { BiddingServiceService } from '../sdk/custom/bidding-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-engine',
@@ -15,7 +15,11 @@ export class EnginePage implements OnInit {
   sub: any;
   carid: String;
   onedata: any;
-  constructor(private storage: Storage,private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) { }
+  dataz;
+car;
+flag=0;
+  id: any;
+  constructor(private router: Router,private storage: Storage,private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) { }
 
   async ngOnInit() {
     this.sub = this.activateRouter.queryParams
@@ -24,6 +28,15 @@ export class EnginePage implements OnInit {
   this.carid = params.trim;
 
 });
+this.liveBiddingService.newsessio()//through socket
+  .subscribe(data=> {this.dataz=data;console.log("new");
+  console.log(this.dataz);this.id=data.id;this.car = this.dataz.biddingInfo.targetCar;
+  console.log("type "+typeof this.dataz);
+  console.log("OCHECKOOCHECKOOCHECKO "+this.id);
+  this.router.navigateByUrl('/customer-bidding')
+});
+ //this.router.navigate(['/bidding-session'],{ queryParams: { session_id:this.id }});});
+  
 this.getengine(this.carid);
 }
   
@@ -33,15 +46,20 @@ this.getengine(this.carid);
       data => {
         console.log('got response from server', data);
        this.the_data = data.data;        
+        this.liveBiddingService.NewJoin();  
       },
       error => {
         console.log('error', error);
       }
     );
-    this.liveBiddingService.NewJoin();  
+
+     
   }
 
   async getengine(carid) {
+    console.log("getting~~engne~~data");
+    console.log("~~~~carid~~~~");
+    console.log(carid);
     this.storage.set('flag',1);
     const observable = await this.biddingServiceService.getengine(carid);
     observable.subscribe(

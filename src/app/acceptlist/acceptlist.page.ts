@@ -15,6 +15,7 @@ loading = false;
 deleteLoading = false;
 biddings;
 dataz;
+  price: any;
 
 constructor(private router: Router,private storage: Storage,private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) { 
   
@@ -49,11 +50,12 @@ async ngOnInit() {
   
   async invoice(bidding){
     console.log("____________________________________________");
-  //  console.log(bidding);
+    console.log(bidding);
+    console.log("____________________________________________");
     this.storage.set('abidding',bidding)
     const am = await this.storage.get("abidding")
     console.log(am.cust +" "+am.date);
-    console.log("____________________________________________");
+    
     this.router.navigateByUrl('/invoice');
   }
 

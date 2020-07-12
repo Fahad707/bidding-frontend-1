@@ -8,11 +8,11 @@ import { LiveBiddingService } from '../sdk/custom/live-bidding.service';
 })
 export class BiddingPage implements OnInit {
 sessions = 1;
-loading = false;
+loading = 'false';
 deleteLoading = false;
 biddings;
 dataz;
-
+skeletonlist = [1, 2, 3, 4, 5, 6, 7,8,9,10];
 constructor(private biddingServiceService:BiddingServiceService,private liveBiddingService:LiveBiddingService) { 
   
     // this.liveBiddingService.newUserJoined()
@@ -28,12 +28,12 @@ async ngOnInit() {
 
 
   async getAll() {
-    this.loading = true;
+    this.loading = 'true';
     const observable = await this.biddingServiceService.getAllBooks();
     observable.subscribe(
       data => {
         this.biddings = data.data;
-        this.loading = false;
+        this.loading = 'false';
         console.log(data.data);
         console.log("OOOO88888OOOOOOOOO8888OOOOOOOO8888OOOOOOOOOOO8888OOOOOOOOOOOOOO8888OOOOOO");
       },

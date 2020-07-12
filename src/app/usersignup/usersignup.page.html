@@ -6,30 +6,84 @@
 
 <ion-content>
 
-  <div  style="width: 100%;text-align:center;margin-top: 50px;">
-    <mat-card style="display:inline-block; border-radius: px;border-style: double;border-color:mediumblue;" class="example-card">
+  <div  style="width: 100%;text-align:center;margin-top: 40px;">
+    <mat-card style="display:inline-block; border-radius: px;border-style: solid;border-color:mediumblue;" class="example-card">
 
     <mat-card-title>Get the best deal on your new car</mat-card-title>
     <mat-card-subtitle>Top deals from local and national dealers are only a click away.</mat-card-subtitle>
   
     <ion-button expand="block">Continue with Google</ion-button>
     
+    <br>
+    <mat-label style="margin-left:11%;float:left;">Name</mat-label>
+    <br>
+    <input matInput [(ngModel)]="name" style="display: block;
+    width: 70%;
+    height: 35px;
+    padding: .625rem .75rem;
+    margin-left:11%;
+     margin-right:2%;
+    line-height: 1.5;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #cad1d7;
+    border-radius: .25rem;
+    box-shadow: none;transition: all .2s cubic-bezier(.68,-.55,.265,1.55);">
+    <br>
+
+
+    <mat-label style="float:left;margin-left:11%;">&nbsp;Email</mat-label>
+    <br>
+    <input matInput [(ngModel)]="email" style="display: block;
+    width: 70%;
+
+    height: 35px;
+    padding: .625rem .75rem;
+    line-height: 1.5;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #cad1d7;
+margin-left:11%;
+margin-right:2%;
+    border-radius: .25rem;
+    box-shadow: none;transition: all .2s cubic-bezier(.68,-.55,.265,1.55);">
+    <br>
+
     
-    <mat-label>Name</mat-label>
+    <mat-label style="float:left;margin-left:11%;">&nbsp;Password</mat-label>
     <br>
-    <input matInput [(ngModel)]="name">
+    <input type="password" matInput [(ngModel)]="password" style="display: block;
+    width: 70%;
+    height: 35px;
+    padding: .625rem .75rem;
+    line-height: 1.5;
+    margin-left:11%;
+margin-right:2%;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #cad1d7;
+    border-radius: .25rem;
+    box-shadow: none;transition: all .2s cubic-bezier(.68,-.55,.265,1.55);">
     <br>
 
-
-    <mat-label>Email</mat-label>
+    <mat-label style="float:left;margin-left:11%;">&nbsp;Confirm Password</mat-label>
     <br>
-    <input matInput [(ngModel)]="email">
-    <br>
-
-    
-    <mat-label>Password</mat-label>
-    <br>
-    <input type="password" matInput [(ngModel)]="password">
+    <input type="password" matInput [(ngModel)]="cpassword" style="display: block;
+    width: 70%;
+    height: 35px;
+    padding: .625rem .75rem;
+    line-height: 1.5;
+    margin-left:11%;
+margin-right:2%;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #cad1d7;
+    border-radius: .25rem;
+    box-shadow: none;transition: all .2s cubic-bezier(.68,-.55,.265,1.55);">
     <br>
 
     <br>

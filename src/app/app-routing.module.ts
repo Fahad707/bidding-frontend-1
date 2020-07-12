@@ -8,14 +8,17 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
     path: 'dealer-dashboard',
+    canActivate: [IsLoginGuard],
     loadChildren: () => import('./dealer-dashboard/dealer-dashboard.module').then( m => m.DealerDashboardPageModule)
   },
   {
     path: 'bidding',
+    canActivate: [IsLoginGuard],
     loadChildren: () => import('./bidding/bidding.module').then( m => m.BiddingPageModule)
   },
   {
     path: 'bidding-session',
+    canActivate: [IsLoginGuard],
     loadChildren: () => import('./bidding-session/bidding-session.module').then( m => m.BiddingSessionPageModule)
   },
   {
@@ -24,10 +27,12 @@ const routes: Routes = [
   },
   {
     path: 'customer-bidding-session',
+    canActivate: [IsLoginGuard],
     loadChildren: () => import('./customer-bidding-session/customer-bidding-session.module').then( m => m.CustomerBiddingSessionPageModule)
   },
   {
     path: 'customer-bidding',
+    canActivate: [IsLoginGuard],
     loadChildren: () => import('./customer-bidding/customer-bidding.module').then( m => m.CustomerBiddingPageModule)
   },
   {
@@ -37,6 +42,7 @@ const routes: Routes = [
   },
   {
     path: 'choose-cartrim',
+    canActivate: [IsLoginGuard],
     loadChildren: () => import('./choose-cartrim/choose-cartrim.module').then( m => m.ChooseCartrimPageModule)
   },
   {
@@ -65,10 +71,12 @@ const routes: Routes = [
   },
   {
     path: 'acceptlist',
+    canActivate: [IsLoginGuard],
     loadChildren: () => import('./acceptlist/acceptlist.module').then( m => m.AcceptlistPageModule)
   },
   {
     path: 'invoice',
+    canActivate: [IsLoginGuard],
     loadChildren: () => import('./invoice/invoice.module').then( m => m.InvoicePageModule)
   },
   {
@@ -78,6 +86,10 @@ const routes: Routes = [
   {
     path: 'usedcars',
     loadChildren: () => import('./usedcars/usedcars.module').then( m => m.UsedcarsPageModule)
+  },
+  {
+    path: 'car-deals',
+    loadChildren: () => import('./car-deals/car-deals.module').then( m => m.CarDealsPageModule)
   }
 ];
 

@@ -13,13 +13,20 @@
   </ion-list> -->
 
 
-  <div class="ion-padding">
+  <div *ngIf="loading=='false'" class="ion-padding">
     <ion-row class="horizontal-cards">
       <ion-col *ngFor="let item of onedata" size="12">
         <div><ion-card style="border-radius:16px; border-style:double; background-color:lightblue; border-width: 5px; border-color:black; "> 
           <ion-card-header>
+            <ion-row>
             <ion-label color="warning" style="font-size: x-large;color:brown;"><strong><a></a>{{item.name}}</strong></ion-label>  
-    
+       
+            <ion-label color="warning" style="font-size: x-large;color:brown;"><strong><a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${{item.Price}}</strong></ion-label>      
+          </ion-row>
+        <ion-row>
+            <ion-label color="warning" style="font-size: x-large;color:brown;"><strong><a></a>{{item.Fuel_type}}</strong></ion-label> 
+            <ion-label color="warning" style="font-size: x-large;color:brown;"><strong><a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.Transmission}}</strong></ion-label>      
+          </ion-row>   
           </ion-card-header>
           <ion-card-content>
             <ion-button style="border-style:solid; border-color:rgba(255, 0, 0, 0.486); border-radius: 12px; font-size:larger;" [routerLink]="['/engine']" [queryParams]="{ trim:item._id}" color="danger">select</ion-button>
@@ -29,5 +36,27 @@
       </ion-col>
       </ion-row>
     </div> 
+
+    <div *ngIf="loading=='true'">
+      <ion-list>
+        <ion-item *ngFor="let item of skeletonlist">
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+  
+      </ion-list>
+    </div>
 </ion-content>
 <!-- [routerLink]="['/choose-cartrim']" [queryParams]="{ car:carid}" -->

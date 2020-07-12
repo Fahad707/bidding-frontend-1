@@ -6,13 +6,14 @@ import { BiddingServiceService } from '../sdk/custom/bidding-service.service';
 import { UserServiceService } from '../sdk/custom/user-service.service';
 import { DealerService } from '../sdk/custom/dealer.service';
 import { Storage } from '@ionic/storage';
+import { CarDealsService } from '../sdk/custom/car-deals.service';
 
 @Component({
-  selector: 'app-lease-deals',
-  templateUrl: './lease-deals.page.html',
-  styleUrls: ['./lease-deals.page.scss'],
+  selector: 'app-car-deals',
+  templateUrl: './car-deals.page.html',
+  styleUrls: ['./car-deals.page.scss'],
 })
-export class LeaseDealsPage implements OnInit {
+export class CarDealsPage implements OnInit {
 
   cars: [];
   carid;
@@ -26,7 +27,7 @@ export class LeaseDealsPage implements OnInit {
   role: any;
   login: any;
   info: any;
-  constructor(private carsService :CarsService,private storage: Storage,private authService:AuthService,private biddingServiceService:BiddingServiceService,private dealerService : DealerService,private activateRouter:ActivatedRoute) { }
+  constructor(private dealsservice : CarDealsService,private carsService :CarsService,private storage: Storage,private authService:AuthService,private biddingServiceService:BiddingServiceService,private dealerService : DealerService,private activateRouter:ActivatedRoute) { }
 
   async ngOnInit() {
     
@@ -41,10 +42,10 @@ export class LeaseDealsPage implements OnInit {
     this.letter=this.letter.toUpperCase()
    
     console.log(this.letter);
-    
+    this.getAll();
    this.getAllnotifications();
     this.checkrole()
-    this.getAll();
+  
   
   }
   
@@ -85,26 +86,21 @@ async exec(){
   }
 
 
-
-
-  
-    async getAll() {
+  async getAll() {
     
-      const observable = await this.carsService.getAllcars();
-      observable.subscribe(
-        data => {
-        
-          this.cars = data.data;
-          console.log("cars:")
-          console.log(data.data);
-          if(this.cars.length%3==0){
-          this.noofcarsrows=this.cars.length/3}
-        },
-        err => {
-          console.log('err', err);
-        }
-      );
-    }
+    const observable = await this.dealsservice.getAlldeals();
+    observable.subscribe(
+      data => {
+      
+        this.cars = data.data;
+        console.log("cars:")
+      },
+      err => {
+        console.log('err', err);
+      }
+    );
+  }
+
 
 
 }

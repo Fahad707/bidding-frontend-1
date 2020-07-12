@@ -40,11 +40,11 @@ export class BiddingServiceService {
     const url =Autodeal.getPath() + '/bidding/start';
     return this.http.post(url,credentials);
   }
-  public async carType(Type:String,id:String): Promise<any> {
-    const url =Autodeal.getPath() +  `/bidding/configure_car/${Type}/${id}`;
+  public async carType(Type:String,id:String,bidtype:String): Promise<any> {
+    const url =Autodeal.getPath() +  `/bidding/configure_car/${Type}/${id}/${bidtype}`;
     const token = await this.authService.getTokenFromStorage();
     console.log("token>>>"+token)
-    return this.http.post(url, {
+    return this.http.post(url,{
       headers: new HttpHeaders().set('Authorization', token)
     });
   }
@@ -53,6 +53,8 @@ export class BiddingServiceService {
     return this.http.get(url);
   }
   public async getengine(sessionid): Promise<any> {
+    console.log("in bidding sevice & sessionid = ");
+    console.log(sessionid);
     const url =Autodeal.getPath() + `/bidding/configure_car/${sessionid}/engine`;
     return this.http.get(url);
   }

@@ -9,7 +9,7 @@ import { BiddingServiceService } from '../sdk/custom/bidding-service.service';
   styleUrls: ['./choose-cartrim.page.scss'],
 })
 export class ChooseCartrimPage implements OnInit {
-
+  loading = 'true';
   carid;
   sub;
   onedata: any;
@@ -24,9 +24,11 @@ export class ChooseCartrimPage implements OnInit {
     this.gettrim(this.carid.car);
   }
   async gettrim(carid) {
+    this.loading = 'true';
     const observable = await this.biddingServiceService.gettrim(carid);
     observable.subscribe(
       data => {
+        this.loading = 'false';
         this.onedata = data.data;
         console.log('Trims data', data.data);
       },

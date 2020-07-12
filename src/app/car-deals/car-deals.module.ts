@@ -1,41 +1,38 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {MatIconModule} from '@angular/material/icon';
-import { IonicModule } from '@ionic/angular';
-import {MatDialogModule} from '@angular/material/dialog';
-import { BiddingSessionPageRoutingModule } from './bidding-session-routing.module';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { BiddingSessionPage, DialogOverviewExampleDialog } from './bidding-session.page';
 
-import {FlexLayoutModule} from '@angular/flex-layout';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { IonicModule } from '@ionic/angular';
+
+import { CarDealsPageRoutingModule } from './car-deals-routing.module';
+
+import { CarDealsPage } from './car-deals.page';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MatIconModule,
-    MatDialogModule,
-    MatCheckboxModule,
-    FlexLayoutModule,
-    MatTooltipModule,
     HttpClientModule,
     MatTooltipModule,
     MatBadgeModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
+    MatIconModule,
     MatListModule,
-    BiddingSessionPageRoutingModule
+    FlexLayoutModule,
+    CarDealsPageRoutingModule
   ],
-  entryComponents:[DialogOverviewExampleDialog],
-  declarations: [DialogOverviewExampleDialog ,BiddingSessionPage]
+  declarations: [CarDealsPage]
 })
-export class BiddingSessionPageModule {}
+export class CarDealsPageModule {}
