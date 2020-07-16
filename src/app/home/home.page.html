@@ -4,14 +4,15 @@
 
 <ion-content [fullscreen]="true">
   
-<div >
-  <mat-toolbar color="primary" class="eg">
-    <mat-toolbar-row>
-      <button mat-icon-button matTooltip="Click to open side menu" (click)="sidenav.toggle()" fxShow="true" fxHide.gt-md>
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span class="btnn"><a style="color:white;text-decoration: none;" href="/home">AutoDeal</a></span>
-      
+  <div >
+    <mat-toolbar color="primary" class="eg">
+      <mat-toolbar-row>
+        <button mat-icon-button matTooltip="Click to open side menu" (click)="sidenav.toggle()" fxShow="true" fxHide.gt-md>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="btnn"><a style="color:white;text-decoration: none;" href="/home">AutoDeal</a></span>
+        
+        
       <span *ngIf="role!=0"  class="menu-spacer"></span>
        <div fxShow="true" fxHide.lt-lg>
         <!-- The following menu items will be hidden on both SM and XS screen sizes -->
@@ -40,7 +41,7 @@
        <div class ="nav"></div>
        
        <ion-buttons *ngIf="login==null" slot="end"> 
-        <ion-button class="eg" fill="clear" href="/userlogin">
+        <ion-button class="eg new" fill="clear" href="/userlogin">
            &nbsp; &nbsp;
            <ion-icon name="person-outline"></ion-icon>
            
@@ -66,7 +67,19 @@
   <mat-toolbar-row style="margin-top: -10px;">
     <div fxShow="true" fxHide.lt-lg>
 
-
+      <ion-buttons  style="margin-left:770px"  *ngIf="role==1"  slot="end">
+        <ion-button  matTooltip="Click to see Accepted offers' list " class="btnd" href="/customer-accept-list">
+          Accepted Offer
+          <!-- <ion-icon name="notifications" ></ion-icon> -->
+          <!-- <ion-badge   *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>      -->
+         </ion-button>
+        <ion-button  matTooltip="Click to see bidding sessions' list " expand="block"  class="btnd" href="/bidding">
+          Offers
+          <!-- <ion-icon name="notifications" ></ion-icon> -->
+          <mat-icon *ngIf="cno!=0" matBadge={{cno}} matBadgeColor="warn" matBadgeSize="large" name="notifications">notification_important</mat-icon>
+          <!-- <ion-badge   *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>      -->
+         </ion-button>
+      </ion-buttons>
     
       
     <ion-buttons  style="margin-left:770px"  *ngIf="role==0"  slot="end">
@@ -94,7 +107,7 @@
     
     <mat-sidenav-content class="an">
       <ion-card class ="one">
-        <img src="./assets/icon/01-Mercedes-Maybach-S-560-4MATIC-4k.jpg" />
+        <img src="./assets/icon/SONATA-hero-option1-764A5360-edit.jpg" />
       </ion-card>
       <a class="centeredsm"  fxHide.gt-sm>The car buying comparison site</a>
       <a class="centered" fxHide="true" fxShow.gt-sm>The car buying comparison site</a>
@@ -102,7 +115,7 @@
         <ion-row class="horizontal-cards" style="width:100%">
           <ion-col *ngFor="let item of cars" size-lg="4" size-sm="6" size-md="6" size-xs="12">
             <div><ion-card>
-              <img src="./assets/icon/3549909.jpg">
+              <img src="./assets/icon/SONATA-hero-option1-764A5360-edit.jpg">
               <ion-card-header>
                 <ion-card-title>{{item.MAKE}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-card-title>
                 <ion-card-subtitle style="font-size: x-large;color: black;">{{item.Model}}</ion-card-subtitle>
@@ -116,7 +129,7 @@
           </ion-col>
           </ion-row>
       </div>
-       <strong *ngIf="flag=='1'" style="font-size: x-large;"> &nbsp;&nbsp;&nbsp;&nbsp;     You May Also Like :  </strong>
+       <strong  style="font-size: x-large;"> &nbsp;&nbsp;&nbsp;&nbsp;     You May Also Like :  </strong>
         <hr><hr>
 
 
@@ -130,9 +143,9 @@
               <ion-card color="light" style="margin-top: 20px;height:450px;width:150%;margin-right: 160px;padding-right: 0px;" >
                 <ion-card-header>
                   <img style="height:200px" src="./assets/icon/3549909.jpg">
-                  <h2>{{item.car_make}}&nbsp;&nbsp;{{item.car_Model}}</h2>
-                  <h3 style="font-size:large;">{{item.trim_name}}</h3>
-                  <h2><Strong style="color:cornflowerblue">Pirce</Strong> : ${{item.trim_Price}} </h2>  
+                  <ion-card-title>{{item.car_make}}&nbsp;&nbsp;{{item.car_Model}}</ion-card-title>
+                <ion-card-title style="font-size:large;">{{item.trim_name}}</ion-card-title>
+              <ion-card-title><Strong style="color:cornflowerblu0e">Pirce</Strong> : ${{item.trim_Price}} </ion-card-title>  
                   <ion-button expand="block" style="height:45px;" [routerLink]="['/choose-cartype']" [queryParams]="{ car:item.car_id}" color="tertiary"> Get offers &nbsp;</ion-button>  
                 </ion-card-header>
               <ion-card-content>
@@ -144,9 +157,9 @@
 
   </ion-segment>
 
-  </ion-col>
+ </ion-col>
 
-   </ion-row>
+ </ion-row>
 
 
  </ion-grid>
@@ -171,6 +184,28 @@
             <!--matBadgeSize="large" <ion-badge   *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>      -->
            </ion-button>
         </ion-buttons>
+
+
+        <ion-buttons   *ngIf="role==1"  slot="primary">
+          <ion-button  matTooltip="Click to see Accepted offers' list " class="btnr" href="/customer-accept-list">
+            Accepted Offer
+            <!-- <ion-icon name="notifications" ></ion-icon> -->
+            <!-- <ion-badge   *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>      -->
+           </ion-button>
+           </ion-buttons>
+           
+           <ion-buttons   *ngIf="role==1"  slot="primary">
+           <br>
+          <ion-button  matTooltip="Click to see offers' list " expand="block"  class="btnr" href="/customer-bidding">
+            Offers
+            <!-- <ion-icon name="notifications" ></ion-icon> -->
+            <mat-icon *ngIf="cno!=0" matBadge={{cno}} matBadgeColor="warn" matBadgeSize="small" name="notifications">notification_important</mat-icon>
+            <!-- <ion-badge   *ngIf="info.notification!=0"  color="danger">{{info.notification}}</ion-badge>      -->
+           </ion-button>
+        </ion-buttons>
+    
+
+
         <hr>
         <button mat-button class="b" [routerLink]="['/display-cars']">New cars</button><br>
         <hr>

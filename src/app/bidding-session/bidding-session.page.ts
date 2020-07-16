@@ -73,6 +73,7 @@ headerRow: [ 'AutoDeal offer', 'You save']
   login: any;
   info: any;
   total: number;
+  s: Promise<any>;
 
 
 constructor(public dialog: MatDialog,private storage: Storage,private activateRouter:ActivatedRoute,private biddingServiceService:BiddingServiceService,
@@ -167,7 +168,7 @@ async ngOnInit() {
     
     
     async checkrole(){
-    
+      this.s = this.storage.get('id');
     this.role = await this.storage.get('role');
     console.log("role");
     console.log(this.role);
@@ -338,7 +339,7 @@ openDialog(){
       }else{
           this.acceptp = this.onedata.Accepted_offer[0].offerdetails.Price;//datax.acceptInfo.dealershipName
       }this.acceptn= this.onedata.Accepted_offer[0].offerdetails.dealershipName;
-          this.acceptid= this.onedata.Accepted_offer[0].offer_id
+          this.acceptid = this.onedata.Accepted_offer[0].offer_id
         }
 
         if(this.onedata.BidOffersType=="cash" && this.onedata.targetCar.Condition=="new")

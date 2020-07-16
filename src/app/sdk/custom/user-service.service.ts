@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserServiceService {
+export class UserServiceService{
 
   constructor(private http: HttpClient) { }
 
@@ -26,5 +26,9 @@ export class UserServiceService {
     const url =Autodeal.getPath() + '/users/logout';
     console.log(url);
     return this.http.post(url,credentials);
+  }
+  public async getAll(): Promise<any> {
+    const url =Autodeal.getPath() + '/users';
+    return this.http.get(url);
   }
 }

@@ -33,6 +33,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   save() {
     this.storage.set('login', this.login);
     console.log("Hii");
+
     const loginData = {
       email:this.email,
       password:this.password
@@ -47,11 +48,11 @@ import {MatSnackBar} from '@angular/material/snack-bar';
         this.loading = false;
         this.login = 1;
         this.er=0;
-        this.username = data.data.username;
-        this.storage.remove('username');
+        this.username = data.data.username; 
         this.storage.set('username', this.username);
         this.storage.set('login', this.login);
         this.storage.set('role',1);
+        this.storage.set('flag',1);
         this.authService.saveTokenToStorage(data.token);
         // this.router.navigateByUrl('/dealer-dashboard');
         this.router.navigateByUrl('/home');

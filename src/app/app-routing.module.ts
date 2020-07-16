@@ -90,6 +90,10 @@ const routes: Routes = [
   {
     path: 'car-deals',
     loadChildren: () => import('./car-deals/car-deals.module').then( m => m.CarDealsPageModule)
+  },
+  {
+    path: 'customer-accept-list',
+    loadChildren: () => import('./customer-accept-list/customer-accept-list.module').then( m => m.CustomerAcceptListPageModule)
   }
 ];
 

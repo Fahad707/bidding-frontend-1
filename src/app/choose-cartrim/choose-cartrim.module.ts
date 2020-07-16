@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ChooseCartrimPageRoutingModule } from './choose-cartrim-routing.module';
-
+import {FlexLayoutModule} from '@angular/flex-layout';
 import { ChooseCartrimPage } from './choose-cartrim.page';
 
 @NgModule({
@@ -13,6 +13,7 @@ import { ChooseCartrimPage } from './choose-cartrim.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    FlexLayoutModule,
     ChooseCartrimPageRoutingModule
   ],
   declarations: [ChooseCartrimPage]

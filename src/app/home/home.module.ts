@@ -14,12 +14,14 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { HttpClientModule } from "@angular/common/http";
+import { IgxCarouselModule } from 'igniteui-angular';
 //notification_important-24px.svg
 //<mat-icon>list</mat-icon>
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
+    IgxCarouselModule,
     FormsModule,
     IonicModule,
     MatTooltipModule,

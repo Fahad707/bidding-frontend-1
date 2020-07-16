@@ -1,7 +1,7 @@
 <ion-header>
   
   <ion-toolbar color="primary">
-    <h1 class="example" slot="start">AutoDeal</h1>
+    <h3 class="example" slot="start">AutoDeal</h3>
     <h1><ion-title  class="ion-text-center"><strong>Your Bidding Sessions</strong></ion-title></h1>     
     </ion-toolbar>
   </ion-header>
@@ -9,7 +9,7 @@
   <ion-content color="">
     <div *ngIf="loading=='false'">
       <ion-list>
-        <ion-item *ngFor="let bidding of biddings.slice().reverse()">
+        <ion-item style="display: flex; justify-content: space-between;" *ngFor="let bidding of biddings.slice().reverse()">
           <ion-label color="tertiary"><strong>{{bidding.targetCar.Condition}}&nbsp;  {{bidding.targetCar.Make}} {{bidding.targetCar.Model}}&nbsp; <br> <ion-row style="margin-top: 6px;"> {{bidding.targetCar.Trim_name}}&nbsp;&nbsp;</ion-row> </strong></ion-label>
           <ion-label style="font-size: small;"><ion-row> Start TIme : {{bidding.started_at.time}}</ion-row> <ion-row> Start Date : {{bidding.started_at.date}}</ion-row></ion-label>      
           <ion-badge  matTooltip="{{bidding.unseen}} new offer(s) from dealers"  *ngIf="bidding.unseen>0" color="warning"><strong>{{bidding.unseen}}</strong> NEW !</ion-badge> 

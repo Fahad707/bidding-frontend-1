@@ -84,7 +84,7 @@
                 Accept Offer &nbsp;
               <ion-icon name="open-outline"></ion-icon>
               </ion-button>
-             <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" expand="block" color="primary">View Details &nbsp;</ion-button>
+             <!-- <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" expand="block" color="primary">View Details &nbsp;</ion-button> -->
             
         
            </ion-card>
@@ -167,7 +167,7 @@
                   Accept Offer &nbsp;
                 <ion-icon name="open-outline"></ion-icon>
                 </ion-button>
-               <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" expand="block" color="primary">View Details &nbsp;</ion-button>
+               <!-- <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" expand="block" color="primary">View Details &nbsp;</ion-button> -->
               
           
              </ion-card>
@@ -222,7 +222,7 @@
         <ion-card-content>
   
           
-            <ion-label style="font-size: xx-large;color: darkgrey;"><strong>&nbsp;&nbsp;&nbsp;{{item.dealershipName}}</strong>&nbsp;&nbsp;<mat-icon *ngIf="onedata.ended && item._id==acceptid" style="color:yellowgreen;size: 100%;">done_outline</mat-icon></ion-label> 
+            <ion-label style="font-size: xx-large;color: darkgrey;"><strong>&nbsp;&nbsp;&nbsp;{{item.dinfo.uname}}</strong>&nbsp;&nbsp;<mat-icon *ngIf="onedata.ended && item._id==acceptid" style="color:yellowgreen;size: 100%;">done_outline</mat-icon></ion-label> 
               <br/>
               <ion-label style="margin-left:3%;border-color: grey;border-style: solid;border-radius: 22px;" *ngIf="item.delivery"><b style="margin-bottom: 6px;margin-top:75%;margin-left: 5px;margin-right: 5px;color:gold;font-size: larger;">Delivery is Available</b></ion-label> 
               <br/>
@@ -290,7 +290,7 @@
             Accept Offer &nbsp;
           <ion-icon name="open-outline"></ion-icon>
           </ion-button>
-         <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" expand="block" color="primary">View Details &nbsp;</ion-button>
+         <!-- <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" expand="block" color="primary">View Details &nbsp;</ion-button> -->
         
     
        </ion-card>
@@ -379,7 +379,7 @@
             Accept Offer &nbsp;
           <ion-icon name="open-outline"></ion-icon>
           </ion-button>
-         <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" expand="block" color="primary">View Details &nbsp;</ion-button>
+         <!-- <ion-button style="margin-bottom:1%;margin-left:2%;margin-right:2%;" expand="block" color="primary">View Details &nbsp;</ion-button> -->
         
     
       </ion-card>
@@ -433,9 +433,15 @@
   <br>
   <br>
   
-  <ion-button *ngIf="offeraccept=='1' && cashOfferForlease==1"  style="color:yellow;margin-left:40%;text-align: center;font-size: large;" href='/acceptlist' >Check invoices</ion-button>
+  <ion-button *ngIf="offeraccept=='1'"  style="color:yellow;margin-left:40%;text-align: center;font-size: large;" href='/customer-accept-list' >Check invoices</ion-button>
+  
 </div>
 
+<div *ngIf="role==0">
+  <br>
+  <br>
+  <ion-button *ngIf="offeraccept=='1' && this.acceptid==s"  style="color:yellow;margin-left:40%;text-align: center;font-size: large;" href='/acceptlist' >Check invoices</ion-button>
+</div>
   
   
   

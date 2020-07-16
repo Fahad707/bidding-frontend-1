@@ -4,38 +4,90 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>  
+<ion-content Style="background-color:lightslategray;">  
+  
   <!-- <ion-list>              
     <ion-item *ngFor="let item of onedata">
       <ion-label><strong><a color="danger"></a>{{item.name}}</strong></ion-label>  
       <ion-button [routerLink]="['/engine']" [queryParams]="{ trim:item._id}" color="tertiary">select</ion-button>
-    </ion-item>  
-  </ion-list> -->
-
-
-  <div *ngIf="loading=='false'" class="ion-padding">
+    </ion-item> --> 
+  <!-- </ion-list> fxShow="true"  fxHide.gt-sm fxShow="false" fxShow.gt-sm="true" -->
+  <h1 style="text-align: center;">Choose a trim</h1>
+  <h3 style="text-align: center;">Each trim is a version of the car with different features and equipment</h3>
+  <div  *ngIf="loading=='false'" fxShow="false" fxShow.gt-sm="true" class="ion-padding">
     <ion-row class="horizontal-cards">
       <ion-col *ngFor="let item of onedata" size="12">
-        <div><ion-card style="border-radius:16px; border-style:double; background-color:lightblue; border-width: 5px; border-color:black; "> 
+        <div><ion-card style="background-color:white; "> 
           <ion-card-header>
             <ion-row>
-            <ion-label color="warning" style="font-size: x-large;color:brown;"><strong><a></a>{{item.name}}</strong></ion-label>  
-       
-            <ion-label color="warning" style="font-size: x-large;color:brown;"><strong><a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${{item.Price}}</strong></ion-label>      
+            <ion-label color="warning" style="font-size: x-large; color:black;margin-top: 0.5%;"><strong><a></a>{{item.name}}</strong></ion-label>  
+            <ion-label color="warning" style="right:255px;position:absolute;font-size: x-large;margin-top: 1%;color:black;"><strong><a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${{item.Price}}</strong></ion-label>      
+            <ion-button style="right:15px;font-size:larger;position:absolute" [routerLink]="['/engine']" [queryParams]="{ trim:item._id}" color="success">Pick this trim</ion-button>
+            
           </ion-row>
         <ion-row>
-            <ion-label color="warning" style="font-size: x-large;color:brown;"><strong><a></a>{{item.Fuel_type}}</strong></ion-label> 
-            <ion-label color="warning" style="font-size: x-large;color:brown;"><strong><a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.Transmission}}</strong></ion-label>      
-          </ion-row>   
-          </ion-card-header>
-          <ion-card-content>
-            <ion-button style="border-style:solid; border-color:rgba(255, 0, 0, 0.486); border-radius: 12px; font-size:larger;" [routerLink]="['/engine']" [queryParams]="{ trim:item._id}" color="danger">select</ion-button>
-          </ion-card-content>
-        </ion-card>
-      </div>
-      </ion-col>
+          <br>
+          <br>
+        </ion-row>
+      </ion-card-header>
+      <ion-card-content>
+     
+      </ion-card-content>
+    </ion-card>
+  </div>
+  </ion-col>
+  </ion-row>
+</div>
+<div  *ngIf="loading=='false'" fxShow="true"  fxHide.gt-sm class="ion-padding">
+  <ion-row class="horizontal-cards">
+    <ion-col *ngFor="let item of onedata" size="12">
+      <div><ion-card style="background-color:white; "> 
+        <ion-card-header>
+          <ion-row>
+          <ion-label color="warning" style="font-size: larger; color:black;margin-top: 0.5%;"><strong><a></a>{{item.name}}</strong></ion-label>  
+          <br>
+        </ion-row>
+
+          <ion-row>
+        <br>
+        <br>
+      
+        <ion-label style="left:-11px;top:50px;position:absolute;font-size: larger;margin-top: 1%;color:black;"><strong><a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${{item.Price}}</strong></ion-label>       
+        </ion-row>
+      <ion-row>
+        <br>
+     
       </ion-row>
-    </div> 
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <br>
+        
+        <ion-button expand="block"  style="bottom: 6px;right:10px;left:10px;font-size:larger;position:absolute" [routerLink]="['/engine']" [queryParams]="{ trim:item._id}" color="success">Pick this trim</ion-button>
+        <br>
+      
+      </ion-row>
+    </ion-card-content>
+   </ion-card>
+</div>
+</ion-col>
+</ion-row>
+</div>
+<!-- <ion-card-header>
+<ion-row justify-content-between>
+  <ion-col col-11>      
+    <span item-left>{{account.title}}</span>
+  </ion-col>
+  <ion-col col-1>
+    <span item-right><ion-icon (click)="takeAction(account.$key)" name="more"></ion-icon></span>
+   </ion-col>
+</ion-card-header> -->
+    
+        <!-- <ion-row>
+            <ion-label color="warning" style="font-size: x-large;color:black;"><strong><a></a>{{item.Fuel_type}}</strong></ion-label> 
+            <ion-label color="warning" style="font-size: x-large;color:black;"><strong><a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.Transmission}}</strong></ion-label>      
+          </ion-row>    -->
+           
 
     <div *ngIf="loading=='true'">
       <ion-list>
@@ -58,5 +110,6 @@
   
       </ion-list>
     </div>
+  
 </ion-content>
 <!-- [routerLink]="['/choose-cartrim']" [queryParams]="{ car:carid}" -->

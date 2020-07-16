@@ -32,25 +32,36 @@ cars: [];
   role: any;
   info: any;
   r: any;
+  cno: any;
 
 
   constructor(private storage: Storage,private authService:AuthService,private carsService:CarsService,private biddingServiceService:BiddingServiceService,private userServiceService : UserServiceService,private dealerService : DealerService) {}
 async ngOnInit(){
  this.exec();
- this.name = await this.storage.get('username');
- console.log(this.name);
+ this.getnames();
  
- this.changeText = false;
-
- this.letter=this.name[0];
-
- this.letter=this.letter.toUpperCase()
-
- console.log(this.letter);
  this.getAll();
  this.getAllnotifications();
+ this.getAllnotificationsforcust();
  this.checkrole()
 }
+
+async getnames(){
+  this.name = await this.storage.get('username');
+  console.log(this.name);
+  
+  this.changeText = false;
+ 
+  this.letter=this.name[0];
+ 
+  this.letter=this.letter.toUpperCase()
+ 
+  console.log(this.letter);
+
+}
+
+
+
 ne(){
 this.toshow=1
 }
@@ -102,12 +113,26 @@ async checkrole(){
 
 
 async getAllnotifications() {
-    
+   
   const observable = await this.biddingServiceService.getAll();
   observable.subscribe(
     data => {
+      console.log("hhihiihihhiih");
       this.info = data.data;
       console.log('data.data', data.data);
+    },
+    err => {
+      console.log('err', err);
+    }
+  );
+}
+async getAllnotificationsforcust() {
+    
+  const observable = await this.userServiceService.getAll();
+  observable.subscribe(
+    data => {
+      this.cno = data.data;
+      console.log('data.data::::::::::::::::', data.data);
     },
     err => {
       console.log('err', err);
@@ -126,14 +151,13 @@ async getAllnotifications() {
       this.flag = await this.storage.get('flag');
       console.log(this.flag)
        console.log(typeof this.flag)
-      if(this.flag=="1"){
+      if(this.flag=="1" && this.role=="1"){
+        console.log("recommendations hit"+data.recommendations)
         console.log("recommendations hit"+data.recommendations)
       this.the_data = data.recommendations; } 
       this.cars = data.data;
       console.log("cars:")
-      console.log(data.data);
-      if(this.cars.length%3==0){
-      this.noofcarsrows=this.cars.length/3}
+      console.log(data.data);  
     },
     err => {
       console.log('err', err);

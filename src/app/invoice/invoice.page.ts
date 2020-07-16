@@ -26,6 +26,7 @@ export class InvoicePage implements OnInit {
   dn: any;
   ph: any;
   em: any;
+  role: any;
 
   constructor(private storage:Storage) { }
 
@@ -34,7 +35,14 @@ export class InvoicePage implements OnInit {
   }
 
   async init(){
-   this.am = await this.storage.get("abidding")
+    this.role = await this.storage.get('role');
+    if(this.role==0){
+    this.am = await this.storage.get("abidding")
+    }
+    else{
+    this.am = await this.storage.get("acustomerbidding")
+    }
+
    this.make=this.am.targetCar.Make
    this.con=this.am.targetCar.Condition
    this.model=this.am.targetCar.Model
