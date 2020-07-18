@@ -94,7 +94,11 @@ const routes: Routes = [
   {
     path: 'customer-accept-list',
     loadChildren: () => import('./customer-accept-list/customer-accept-list.module').then( m => m.CustomerAcceptListPageModule)
+  },  {
+    path: 'newsignup',
+    loadChildren: () => import('./newsignup/newsignup.module').then( m => m.NewsignupPageModule)
   }
+
 ];
 
 @NgModule({
