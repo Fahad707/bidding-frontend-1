@@ -115,7 +115,8 @@
         <ion-row class="horizontal-cards" style="width:100%">
           <ion-col *ngFor="let item of cars" size-lg="4" size-sm="6" size-md="6" size-xs="12">
             <div><ion-card>
-              <img src="./assets/icon/SONATA-hero-option1-764A5360-edit.jpg">
+              <img [src]="item.Pic_path">
+              <!-- <img src="./assets/icon/SONATA-hero-option1-764A5360-edit.jpg"> -->
               <ion-card-header>
                 <ion-card-title>{{item.MAKE}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-card-title>
                 <ion-card-subtitle style="font-size: x-large;color: black;">{{item.Model}}</ion-card-subtitle>
